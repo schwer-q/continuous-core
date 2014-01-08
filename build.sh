@@ -98,5 +98,7 @@ for m in $mounts ; do
     umount $m
 done
 
+rm -rf ${LFS}/core
+
 echo "===> Build completed on `date`"
 exit 0
