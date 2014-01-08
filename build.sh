@@ -105,10 +105,13 @@ show_time() {
     echo "$sec seconds"
 }
 
-while getopts 'cdst' ch ; do
+while getopts 'cCdstT' ch ; do
     case "$ch" in
 	'c')
 	    KEEP_CORE="yes"
+	    ;;
+	'C')
+	    SKIP_CORE="yes"
 	    ;;
 	'd')
 	    NO_DOWNLOAD="yes"
@@ -118,6 +121,9 @@ while getopts 'cdst' ch ; do
 	    ;;
 	't')
 	    KEEP_TOOLCHAIN="yes"
+	    ;;
+	'T')
+	    SKIP_TOOLCHAIN="yes"
 	    ;;
     esac
 done
