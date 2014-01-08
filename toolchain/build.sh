@@ -14,16 +14,9 @@ export LC_ALL LFS LFS_TGT PATH
 if test -z "$1"; then
     files=`find $CURDIR | egrep '[[:digit:]]{3}-[[:alnum:]_]+\.sh$' | sort -V`
 
-    # mkdir -pv $LFS
-    # mkdir -pv ${LFS}/tools
-    # mkdir -pv ${LFS}/sources
-    # rm -fv /tools
-    # ln -sfv ${LFS}/tools /tools
-
-    # wget -c -N -i ../misc/wget-list -P ${LFS}/sources || true
-    # cd ${LFS}/sources
-    # md5sum -c ${CURDIR}/../misc/md5sums
-    # cd $CURDIR
+    mkdir -pv ${LFS}/tools
+    rm -fv /tools
+    ln -sfv ${LFS}/tools /tools
 
     echo "===> Toolchain build started on `date`"
     for file in $files; do

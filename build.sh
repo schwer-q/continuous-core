@@ -6,12 +6,109 @@ set +h
 CURDIR=$(pwd)
 LC_ALL="POSIX"
 LFS="/home/lfs"
+LFS_CORE="${LFS}/core"
+LFS_SOURCES="${LFS}/sources"
+LFS_TOOLCHAIN="${LFS}/tools"
 export LC_ALL LFS
 
-while getopts 'cds' ch ; do
+clean() {
+    echo -n "Cleanning..."
+    test -z "$KEEP_CORE" && rm -rf $LFS_CORE
+    test -z "$KEEP_SOURCES" && rm -rf $LFS_SOURCES
+    test -z "$KEEP_TOOLCHAIN" && rm -rf $LFS_TOOLCHAIN
+    rm -f /tools
+    echo " done"
+    return 0
+}
+
+core_setup() {
+    echo -n "Setting up core build..."
+
+    mkdir -p ${LFS_CORE}/build
+    cp -r core/* ${LFS_CORE}/build
+
+    mkdir -p ${LFS_CORE}/sources
+    mkdir -p ${LFS_CORE}/tools
+
+    mkdir -p ${LFS_CORE}/dev
+    mkdir -p ${LFS_CORE}/proc
+    mkdir -p ${LFS_CORE}/sys
+
+    mknod -m 600 ${LFS_CORE}/dev/console	c 5 1
+    mknod -m 666 ${LFS_CORE}/dev/null		c 1 3
+
+    mount --bind	/dev		${LFS_CORE}/dev
+    mount -t devpts	devpts		${LFS_CORE}/dev/pts -o gid=5,mode=620
+    mount -t proc	proc		${LFS_CORE}/proc
+    mount -t sysfs	sysfs		${LFS_CORE}/sys
+    mount --bind	$LFS_SOURCES	${LFS_CORE}/sources
+    mount --bind	$LFS_TOOLCHAIN	${LFS_CORE}/tools
+
+    if [ -h ${LFS_CORE}/dev/shm ]; then
+	link=`readlink ${LFS_CORE}/dev/shm`
+	mkdir -p ${LFS_CORE}/$link
+	mount -t tmpfs shm ${LFS_CORE}/$link
+	unset link
+    else
+	mount -t tmpfs shm ${LFS_CORE}/dev/shm
+    fi
+
+    echo " done."
+    return 0
+}
+
+core_unsetup() {
+    echo -n "Cleanning up core..."
+
+    mounts=`mount | grep $LFS | cut -d' ' -f3 | sort -r`
+
+    for m in $mounts ; do
+	umount $m
+    done
+
+    rm -rf ${LFS_CORE}/build
+    rm -rf ${LFS_CORE}/sources
+    rm -rf ${LFS_CORE}/tools
+
+    echo " done."
+
+    return 0
+}
+
+downlod() {
+    test -n "$NO_DOWNLOAD" && return 0
+
+    echo "Downloading..."
+    mkdir -p $LFS_SOURCES
+    wget -c -N -i misc/wget-list -P ${LFS}/sources || true
+
+    echo "Validating..."
+    cd $LFS_SOURCES
+    md5sum -c ${CURDIR}/misc/md5sums
+    cd $CURDIR
+    return 0
+}
+
+show_time() {
+    time=$(($end_time - $start_time))
+    day=$(($time / 86400))
+    time=$(($time % 86400))
+    hour=$(($time / 3600))
+    time=$(($time % 3600))
+    min=$(($time / 60))
+    sec=$(($time % 60))
+
+    echo -n "Build completed in: "
+    test $day -eq 0 || echo -n "$day days "
+    test $hour -eq 0 || echo -n "$hour hours "
+    test $min -eq 0 || echo -n "$min minutes "
+    echo "$sec seconds"
+}
+
+while getopts 'cdst' ch ; do
     case "$ch" in
 	'c')
-	    NO_CLEAN="yes"
+	    KEEP_CORE="yes"
 	    ;;
 	'd')
 	    NO_DOWNLOAD="yes"
@@ -19,8 +116,12 @@ while getopts 'cds' ch ; do
 	's')
 	    KEEP_SOURCES="yes"
 	    ;;
+	't')
+	    KEEP_TOOLCHAIN="yes"
+	    ;;
     esac
 done
+shift $(($OPTIND - 1))
 
 mounts=`mount | grep $LFS | cut -d' ' -f3 | sort -r`
 
@@ -28,77 +129,30 @@ for m in $mounts ; do
     umount $m
 done
 
-if test -z "$NO_CLEAN"; then
-    echo "===> Cleanning..."
-    if test -z "$KEEP_SOURCES"; then
-	rm -rf $LFS
-    else
-	cd $LFS
-	dirs=`ls | grep -v sources`
-	for d in $dirs; do
-	    rm -rf $d
-	done
-	cd $CURDIR
-    fi
-fi
-
-rm -fv /tools
-
-mkdir -pv ${LFS}
-mkdir -pv ${LFS}/sources
-mkdir -pv ${LFS}/tools
-ln -sfv	  ${LFS}/tools /tools
-
-if test -z "$NO_DOWNLOAD"; then
-    wget -c -N -i misc/wget-list -P ${LFS}/sources || true
-    cd ${LFS}/sources
-    md5sum -c ${CURDIR}/misc/md5sums
-    cd $CURDIR
-fi
+clean
+downlod
 
 echo "===> Build started on `date`"
+start_time=`date '+s'`
+
 cd toolchain
-./build.sh
+test -z "$SKIP_TOOLCHAIN" && ./build.sh
 cd $CURDIR
 
+if test -z "$SKIP_CORE"; then
+    core_setup
 
-cp -r core ${LFS}
+    chroot "$LFS_CORE" /tools/bin/env -i		\
+	HOME="/root"					\
+	TERM="$TERM"					\
+	PATH="/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin"	\
+	/tools/bin/bash --login +h			\
+	-c "cd /build && /tools/bin/bash ./build.sh"
 
-mkdir -pv ${LFS}/dev
-mkdir -pv ${LFS}/proc
-mkdir -pv ${LFS}/sys
-
-mknod -m 600 ${LFS}/dev/console c 5 1
-mknod -m 666 ${LFS}/dev/null	c 1 3
-
-mount -v --bind		/dev	${LFS}/dev
-mount -vt devpts	devpts	${LFS}/dev/pts -o gid=5,mode=620
-mount -vt proc		proc	${LFS}/proc
-mount -vt sysfs		sysfs	${LFS}/sys
-
-if [ -h ${LFS}/dev/shm ]; then
-    link=$(readlink ${LFS}/dev/shm)
-    mkdir -p ${LFS}/$link
-    mount -vt tmpfs shm ${LFS}/$link
-    unset link
-else
-    mount -vt tmpfs shm ${LFS}/dev/shm
+    core_unsetup
 fi
 
-chroot "$LFS" /tools/bin/env -i				\
-    HOME="/root"					\
-    TERM="$TERM"					\
-    PATH="/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin"	\
-    /tools/bin/bash --login +h				\
-    -c "cd core && /tools/bin/bash ./build.sh"
-
-mounts=`mount | grep $LFS | cut -d' ' -f3 | sort -r`
-
-for m in $mounts ; do
-    umount $m
-done
-
-rm -rf ${LFS}/core
-
+end_time=`date '+s'`
+show_time
 echo "===> Build completed on `date`"
 exit 0
