@@ -42,29 +42,41 @@ clean() {
 : ${ARCHIVE="${SOURCES}.${EXT}"}
 : ${BUILDDIR="${SOURCES}"}
 
+test -e /logs/$SOURCES && rm -f /logs/$SOURCES
+
+echo "$NAME $VERSION"
 if test -z "$NO_CLEAN"; then
     cd $CURDIR
-    echo "===> Cleanning ${NAME}-${VERSION}..."
-    clean
+    echo -n "  Cleanning..."
+    echo "===> Cleanning..." 2>&1 >> /logs/$SOURCES
+    clean 2>&1 >> /logs/$SOURCES
+    echo " done."
 fi
 
 if test -z "$NO_UNPACK"; then
-    echo "===> Unpacking ${NAME}-${VERSION}..."
-    unpack ${LFS}/sources/$ARCHIVE
+    echo -n "  Unpacking..."
+    echo "===> Unpacking..." 2>&1 >> /logs/$SOURCES
+    unpack ${LFS}/sources/$ARCHIVE 2>&1 >> /logs/$SOURCES
+    echo " done."
 fi
 
 if test -z "$NO_BUILD"; then
-    echo "===> Building ${NAME}-${VERSION}..."
-    build
+    echo -n "  Building..."
+    echo "===> Building..." 2>&1 >> /logs/$SOURCES
+    build 2>&1 >> /logs/$SOURCES
+    echo " done."
 fi
 
-echo "===> Installing ${NAME}-${VERSION}..."
-install_
+echo -n "  Installing..."
+install_ 2>&1 >> /logs/$SOURCES
+echo " done."
 
 if test -z "$NO_CLEAN"; then
     cd $CURDIR
-    echo "===> Cleanning ${NAME}-${VERSION}..."
-    clean
+    echo -n "  Cleanning..."
+    echo "===> Cleanning..." 2>&1 >> /logs/$SOURCES
+    clean 2>&1 >> /logs/$SOURCES
+    echo " done."
 fi
 
 exit 0

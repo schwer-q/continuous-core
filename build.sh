@@ -7,6 +7,7 @@ CURDIR=$(pwd)
 LC_ALL="POSIX"
 LFS="/home/lfs"
 LFS_CORE="${LFS}/core"
+LFS_LOG="${LFS}/logs"
 LFS_SOURCES="${LFS}/sources"
 LFS_TOOLCHAIN="${LFS}/tools"
 export LC_ALL LFS
@@ -34,6 +35,9 @@ core_setup() {
     mkdir -p ${LFS_CORE}/proc
     mkdir -p ${LFS_CORE}/sys
 
+    mkdir -p ${LFS_LOG}/core
+    mkdir -p ${LFS_CORE}/logs
+
     mknod -m 600 ${LFS_CORE}/dev/console	c 5 1
     mknod -m 666 ${LFS_CORE}/dev/null		c 1 3
 
@@ -43,6 +47,7 @@ core_setup() {
     mount -t sysfs	sysfs		${LFS_CORE}/sys
     mount --bind	$LFS_SOURCES	${LFS_CORE}/sources
     mount --bind	$LFS_TOOLCHAIN	${LFS_CORE}/tools
+    mount --bind	${LFS_LOG}/core	${LFS_CORE}/logs
 
     if [ -h ${LFS_CORE}/dev/shm ]; then
 	link=`readlink ${LFS_CORE}/dev/shm`
@@ -67,6 +72,7 @@ core_unsetup() {
     done
 
     rm -rf ${LFS_CORE}/build
+    rm -rf ${LFS_CORE}/logs
     rm -rf ${LFS_CORE}/sources
     rm -rf ${LFS_CORE}/tools
 
