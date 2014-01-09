@@ -1,45 +1,3 @@
-#!/bin/sh -
-
-NAME="setup"
-VERSION="1.0"
-NO_UNPACK="yes"
-NO_BUILD="yes"
-NO_CLEAN="yes"
-
-install_() {
-    echo "HOSTNAME=lfs" > /etc/sysconfig/network
-    
-    cat > /etc/sysconfig/clock << "EOF"
-# Begin /etc/sysconfig/clock
-
-UTC=0
-
-# Set this to any options you might need to give to hwclock,
-# such as machine hardware clock type for Alphas.
-CLOCKPARAMS=
-
-# End /etc/sysconfig/clock
-EOF
-
-    cat > /etc/sysconfig/console << "EOF"
-# Begin /etc/sysconfig/console
-
-UNICODE="1"
-KEYMAP="us"
-FONT="lat1-08"
-
-# End /etc/sysconfig/console
-EOF
-
-cat > /etc/profile << "EOF"
-# Begin /etc/profile
-
-export LANG=en_US.UTF8
-
-# End /etc/profile
-EOF
-
-cat > /etc/inputrc << "EOF"
 # Begin /etc/inputrc
 
 # Allow the command prompt to wrap to the next line
@@ -80,5 +38,3 @@ set bell-style none
 "\e[F": end-of-line
 
 # End /etc/inputrc
-EOF
-}

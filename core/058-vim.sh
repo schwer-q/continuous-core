@@ -28,16 +28,5 @@ install_() {
 
     ln -sfv ../vim/vim74/doc /usr/share/doc/$PKG_SOURCES
 
-    cat > /etc/vimrc << "EOF"
-" Begin /etc/vimrc
-
-set nocompatible
-set backspace=2
-syntax on
-if (&term == "iterm") || (&term == "putty")
-	set background=dark
-endif
-
-" End /etc/vimrc
-EOF
+    tar -cvf - -C $PKG_FILES | tar -xf - -C $DESTDIR
 }

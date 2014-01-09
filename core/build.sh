@@ -38,9 +38,11 @@ clean() {
 
 . $1
 
-: ${PKG_SOURCES="${NAME}-${VERSION}"}
 : ${ARCHIVE="${PKG_SOURCES}.${EXT}"}
 : ${BUILDDIR="${PKG_SOURCES}"}
+: ${DESTDIR="/"}
+: ${PKG_SOURCES="${NAME}-${VERSION}"}
+PKG_FILES=`echo $1 | sed 's/\.sh$//'`
 
 test -e /logs/$PKG_SOURCES && rm -f /logs/$PKG_SOURCES
 

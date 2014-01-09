@@ -15,4 +15,6 @@ build() {
 
 install_() {
     make -C src install
+
+    tar -cvf - -C $PKG_FILES | tar -xf - -C $DESTDIR
 }

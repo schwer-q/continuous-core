@@ -25,35 +25,17 @@ install_() {
 
     make install
 
-    cp -v ../${PKG_SOURCES}/sunrpc/rpc/*.h	/usr/include/rpc
-    cp -v ../${PKG_SOURCES}/sunrpc/rpcsvc/*.h	/usr/include/rpcsvc
-    cp -v ../${PKG_SOURCES}/nis/rpcsvc/*.h	/usr/include/rpcsvc
+    cp -v ../${PKG_SOURCES}/sunrpc/rpc/*.h	${DESTDIR}/usr/include/rpc
+    cp -v ../${PKG_SOURCES}/sunrpc/rpcsvc/*.h	${DESTDIR}/usr/include/rpcsvc
+    cp -v ../${PKG_SOURCES}/nis/rpcsvc/*.h	${DESTDIR}/usr/include/rpcsvc
 
-    mkdir -pv /usr/lib/locale
+    tar -cvf - -C $PKG_FILES | tar -xf - -C $DESTDIR
 
+    mkdir -pv ${DESTDIR}/usr/lib/locale
     make localedata/install-locales
 
-    cat > /etc/nsswitch.conf << "EOF"
-# Begin /etc/nsswitch.conf
-
-passwd: files
-group: files
-shadow: files
-
-hosts: files dns
-networks: files
-
-protocols: files
-services: files
-ethers: files
-rpc: files
-
-# End /etc/nsswitch.conf
-EOF
-
     tar -xf /sources/tzdata2013d.tar.gz
-
-    ZONEINFO="/usr/share/zoneinfo"
+    ZONEINFO="${DESTDIR}/usr/share/zoneinfo"
     mkdir -pv			\
 	${ZONEINFO}/posix	\
 	${ZONEINFO}/right
@@ -68,19 +50,4 @@ EOF
 
     cp -v zone.tab iso3166.tab $ZONEINFO
     zic -d $ZONEINFO -p Europe/Paris
-
-    cat > /etc/ld.so.conf << "EOF"
-# Begin /etc/ld.so.conf
-
-# Add an include directory
-include /etc/ld.so.conf.d/*.conf
-
-EOF
-
-    mkdir -pv /etc/ld.so.conf.d
-}
-
-clean() {
-    rm -rf $PKG_SOURCES
-    rm -rf ${NAME}-build
 }

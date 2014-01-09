@@ -19,14 +19,6 @@ install_() {
 
     ln -sfv libfl.a /usr/lib/libl.a
 
-    cat > /usr/bin/lex << "EOF"
-#!/bin/sh
-# Begin /usr/bin/lex
-
-exec /usr/bin/flex -l "$@"
-
-# End /usr/bin/lex
-EOF
-
+    tar -cvf - -C $PKG_FILES | tar -xf - -C $DESTDIR
     chmod -v 755 /usr/bin/lex
 }
