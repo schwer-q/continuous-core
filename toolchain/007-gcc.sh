@@ -38,13 +38,10 @@ build() {
     mkdir ../${NAME}-build
     cd ../${NAME}-build
 
-
-    CC=${LFS_TGT}-gcc						\
-    CXX=${LFS_TGT}-g++						\
-    AR=${LFS_TGT}-ar						\
-    RANLIB=${LFS_TGT}-ranlib					\
     ../${SOURCES}/configure					\
 	--prefix=/tools						\
+	--build=$LFS_TGT					\
+	--host=$LFS_TGT						\
 	--with-local-prefix=/tools				\
 	--with-native-system-header-dir=/tools/include		\
 	--enable-clocale=gnu					\

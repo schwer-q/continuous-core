@@ -11,11 +11,10 @@ build() {
     mkdir ../${NAME}-build
     cd ../${NAME}-build
 
-    CC=${LFS_TGT}-gcc			\
-    AR=${LFS_TGT}-ar			\
-    RANLIB=${LFS_TGT}-ranlib		\
     ../${SOURCES}/configure		\
 	--prefix=/tools			\
+	--build=$LFS_TGT		\
+	--host=$LFS_TGT			\
 	--disable-nls			\
 	--with-lib-path=/tools/lib	\
 	--with-sysroot
