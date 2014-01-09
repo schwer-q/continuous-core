@@ -3,7 +3,8 @@
 PKG_NAME="binutils"
 PKG_VERSION="2.23.2"
 PKG_ARCHIVE_EXT="tar.bz2"
-BUILDDIR="${PKG_NAME}-build"
+
+USE_EXT_BUILD="yes"
 
 build() {
     rm -fv etc/standards.info
@@ -12,10 +13,9 @@ build() {
     sed -i -e 's/@colophon/@@colophon/' \
 	-e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo
 
-    mkdir -v ../$BUILDDIR
-    cd ../$BUILDDIR
+    cd $PKG_BUILD
 
-    ../${PKG_SOURCES}/configure	\
+    ${PKG_SOURCES}/configure	\
 	--prefix=/usr		\
 	--host=$LFS_TGT		\
 	--enable-shared

@@ -32,17 +32,23 @@ unpack() {
 
 clean() {
     rm -rf $PKG_SOURCES
-    test -d "$BUILDDIR" && rm -rf $BUILDDIR
+    test -d "$PKG_BUILD" && rm -rf $PKG_BUILD
     return 0
 }
 
 . $1
 
-: ${PKG_ARCHIVE="${PKG_SOURCES}.${PKG_ARCHIVE_EXT}"}
-: ${BUILDDIR="${PKG_SOURCES}"}
 : ${DESTDIR="/"}
+: ${PKG_ARCHIVE="${PKG_SOURCES}.${PKG_ARCHIVE_EXT}"}
 : ${PKG_SOURCES="${PKG_NAME}-${PKG_VERSION}"}
+
 PKG_FILES=`echo $1 | sed 's/\.sh$//'`
+PKG_SOURCES="${CURDIR}/${PKG_SOURCES}"
+
+if test -n "$USE_EXT_BUILD"; then
+    PKG_BUILD="${PKG_SOURCES}/../${PKG_NAME}-build"
+    mkdir -p $PKG_BUILD
+fi
 
 test -e /logs/$PKG_SOURCES && rm -f /logs/$PKG_SOURCES
 

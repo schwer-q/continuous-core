@@ -3,7 +3,8 @@
 PKG_NAME="gcc"
 PKG_VERSION="4.8.1"
 PKG_ARCHIVE_EXT="tar.bz2"
-BUILDDIR="${PKG_NAME}-build"
+
+USE_EXT_BUILD="yes"
 
 build() {
     case `uname -m` in
@@ -17,10 +18,9 @@ build() {
     mv -v libmudflap/testsuite/libmudflap.c++/pass41-frag.cxx \
 	libmudflap/testsuite/libmudflap.c++/pass41-frag.cxx.disable
 
-    mkdir -pv ../$BUILDDIR
-    cd ../$BUILDDIR
+    cd $PKG_BUILD
 
-    ../${PKG_SOURCES}/configure		\
+    ${PKG_SOURCES}/configure		\
 	--prefix=/usr			\
 	--host=$LFS_TGT			\
 	--libexecdir=/usr/lib		\

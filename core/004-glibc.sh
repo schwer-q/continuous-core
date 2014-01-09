@@ -3,15 +3,15 @@
 PKG_NAME="glibc"
 PKG_VERSION="2.18"
 PKG_ARCHIVE_EXT="tar.xz"
-BUILDDIR="${PKG_NAME}-build"
+
+USE_EXT_BUILD="yes"
 
 build() {
     sed -i -e 's/static __m128i/inline &/' sysdeps/x86_64/multiarch/strstr.c
 
-    mkdir -v ../$BUILDDIR
-    cd ../$BUILDDIR
+    cd $PKG_BUILD
 
-    ../${PKG_SOURCES}/configure	\
+    ${PKG_SOURCES}/configure	\
 	--prefix=/usr		\
 	--disable-profile	\
 	--enable-kernel=2.6.32	\
