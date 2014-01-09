@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="groff"
-VERSION="1.22.2"
+PKG_VERSION="1.22.2"
 EXT="tar.gz"
 
 build() {

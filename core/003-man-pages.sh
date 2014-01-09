@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="man-pages"
-VERSION="3.53"
+PKG_VERSION="3.53"
 EXT="tar.xz"
 
 build() {

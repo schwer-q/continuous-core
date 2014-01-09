@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="bash"
-VERSION="4.2"
+PKG_VERSION="4.2"
 EXT="tar.gz"
 
 build() {

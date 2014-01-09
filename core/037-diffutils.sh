@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="diffutils"
-VERSION="3.3"
+PKG_VERSION="3.3"
 EXT="tar.xz"
 
 build() {

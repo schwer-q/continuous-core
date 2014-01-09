@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="file"
-VERSION="5.14"
+PKG_VERSION="5.14"
 EXT="tar.gz"
 
 build() {

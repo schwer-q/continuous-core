@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="patch"
-VERSION="2.7.1"
+PKG_VERSION="2.7.1"
 EXT="tar.xz"
 
 build() {

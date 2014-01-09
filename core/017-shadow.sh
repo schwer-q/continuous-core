@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="shadow"
-VERSION="4.1.5.1"
+PKG_VERSION="4.1.5.1"
 EXT="tar.bz2"
 
 build() {

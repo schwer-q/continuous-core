@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="make"
-VERSION="3.82"
+PKG_VERSION="3.82"
 EXT="tar.bz2"
 
 build() {

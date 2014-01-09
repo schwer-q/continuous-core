@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="tar"
-VERSION="1.26"
+PKG_VERSION="1.26"
 EXT="tar.bz2"
 
 build() {

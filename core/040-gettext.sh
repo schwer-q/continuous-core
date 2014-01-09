@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="gettext"
-VERSION="0.18.3"
+PKG_VERSION="0.18.3"
 EXT="tar.gz"
 
 build() {

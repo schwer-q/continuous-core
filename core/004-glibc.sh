@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="glibc"
-VERSION="2.18"
+PKG_VERSION="2.18"
 EXT="tar.xz"
 BUILDDIR="${PKG_NAME}-build"
 

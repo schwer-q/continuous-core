@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="man-db"
-VERSION="2.6.5"
+PKG_VERSION="2.6.5"
 EXT="tar.xz"
 
 build() {

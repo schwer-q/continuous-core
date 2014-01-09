@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="procps-ng"
-VERSION="3.3.8"
+PKG_VERSION="3.3.8"
 EXT="tar.xz"
 
 build() {

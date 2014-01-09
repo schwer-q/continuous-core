@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="readline"
-VERSION="6.2"
+PKG_VERSION="6.2"
 EXT="tar.gz"
 
 build() {

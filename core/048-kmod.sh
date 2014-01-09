@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="kmod"
-VERSION="14"
+PKG_VERSION="14"
 EXT="tar.xz"
 
 build() {

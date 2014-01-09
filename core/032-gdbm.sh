@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="gdbm"
-VERSION="1.10"
+PKG_VERSION="1.10"
 EXT="tar.gz"
 
 build() {

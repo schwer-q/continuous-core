@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="linux"
-VERSION="3.10.10"
+PKG_VERSION="3.10.10"
 EXT="tar.xz"
 
 build() {

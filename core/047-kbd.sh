@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="kbd"
-VERSION="1.15.5"
+PKG_VERSION="1.15.5"
 EXT="tar.gz"
 
 build() {

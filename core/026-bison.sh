@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="bison"
-VERSION="3.0"
+PKG_VERSION="3.0"
 EXT="tar.xz"
 
 build() {

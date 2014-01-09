@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="sysvinit"
-VERSION="2.88dsf"
+PKG_VERSION="2.88dsf"
 EXT="tar.bz2"
 
 build() {

@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="coreutils"
-VERSION="8.21"
+PKG_VERSION="8.21"
 EXT="tar.xz"
 
 build() {

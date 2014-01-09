@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="bzip2"
-VERSION="1.0.6"
+PKG_VERSION="1.0.6"
 EXT="tar.gz"
 
 build() {

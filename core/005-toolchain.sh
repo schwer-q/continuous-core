@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="toolchain"
-VERSION="1.0"
+PKG_VERSION="1.0"
 
 NO_UNPACK="yes"
 NO_BUILD="yes"

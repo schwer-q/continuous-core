@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="gzip"
-VERSION="1.6"
+PKG_VERSION="1.6"
 EXT="tar.xz"
 
 build() {

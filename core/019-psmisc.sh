@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="psmisc"
-VERSION="22.20"
+PKG_VERSION="22.20"
 EXT="tar.gz"
 
 build() {

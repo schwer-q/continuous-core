@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="ncurses"
-VERSION="5.9"
+PKG_VERSION="5.9"
 EXT="tar.gz"
 
 build() {

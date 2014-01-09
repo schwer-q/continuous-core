@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="sed"
-VERSION="4.2.2"
+PKG_VERSION="4.2.2"
 EXT="tar.bz2"
 
 build() {

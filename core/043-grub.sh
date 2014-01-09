@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="grub"
-VERSION="2.00"
+PKG_VERSION="2.00"
 EXT="tar.xz"
 
 build() {

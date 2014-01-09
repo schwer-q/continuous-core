@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="gcc"
-VERSION="4.8.1"
+PKG_VERSION="4.8.1"
 EXT="tar.bz2"
 BUILDDIR="${PKG_NAME}-build"
 

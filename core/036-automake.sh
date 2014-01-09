@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="automake"
-VERSION="1.14"
+PKG_VERSION="1.14"
 EXT="tar.xz"
 
 build() {

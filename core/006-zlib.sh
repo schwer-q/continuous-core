@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="zlib"
-VERSION="1.2.8"
+PKG_VERSION="1.2.8"
 EXT="tar.xz"
 
 build() {
@@ -15,5 +15,5 @@ install_() {
     make install
     
     mv -v /usr/lib/libz.so.* /lib
-    ln -sfv ../../lib/libz.so.$VERSION /usr/lib/libz.so
+    ln -sfv ../../lib/libz.so.$PKG_VERSION /usr/lib/libz.so
 }

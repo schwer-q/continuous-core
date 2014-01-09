@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="pkg-config"
-VERSION="0.28"
+PKG_VERSION="0.28"
 EXT="tar.gz"
 
 build() {

@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="systemd"
-VERSION="206"
+PKG_VERSION="206"
 EXT="tar.xz"
 
 build() {

@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="m4"
-VERSION="1.4.16"
+PKG_VERSION="1.4.16"
 EXT="tar.bz2"
 
 build() {

@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="iproute2"
-VERSION="3.10.0"
+PKG_VERSION="3.10.0"
 EXT="tar.xz"
 
 build() {

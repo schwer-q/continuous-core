@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="flex"
-VERSION="2.5.37"
+PKG_VERSION="2.5.37"
 EXT="tar.bz2"
 
 build() {

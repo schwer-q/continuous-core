@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="libtool"
-VERSION="2.4.2"
+PKG_VERSION="2.4.2"
 EXT="tar.gz"
 
 build() {

@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="perl"
-VERSION="5.18.1"
+PKG_VERSION="5.18.1"
 EXT="tar.bz2"
 
 build() {

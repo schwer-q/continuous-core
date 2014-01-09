@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="e2fsprogs"
-VERSION="1.42.8"
+PKG_VERSION="1.42.8"
 EXT="tar.gz"
 
 build() {

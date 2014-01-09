@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="sysklogd"
-VERSION="1.5"
+PKG_VERSION="1.5"
 EXT="tar.gz"
 
 build() {

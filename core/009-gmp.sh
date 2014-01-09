@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="gmp"
-VERSION="5.1.2"
+PKG_VERSION="5.1.2"
 EXT="tar.xz"
 
 build() {

@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="binutils"
-VERSION="2.23.2"
+PKG_VERSION="2.23.2"
 EXT="tar.bz2"
 BUILDDIR="${PKG_NAME}-build"
 

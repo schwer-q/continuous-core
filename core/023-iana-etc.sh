@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="iana-etc"
-VERSION="2.30"
+PKG_VERSION="2.30"
 EXT="tar.bz2"
 
 build() {

@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="autoconf"
-VERSION="2.69"
+PKG_VERSION="2.69"
 EXT="tar.xz"
 
 build() {

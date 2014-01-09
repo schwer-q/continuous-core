@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="texinfo"
-VERSION="5.1"
+PKG_VERSION="5.1"
 EXT="tar.xz"
 
 build() {

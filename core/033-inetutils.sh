@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="inetutils"
-VERSION="1.9.1"
+PKG_VERSION="1.9.1"
 EXT="tar.gz"
 
 build() {

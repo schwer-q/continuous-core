@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="libpipeline"
-VERSION="1.2.4"
+PKG_VERSION="1.2.4"
 EXT="tar.gz"
 
 build() {

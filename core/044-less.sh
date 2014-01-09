@@ -1,7 +1,7 @@
 #!/bin/sh -
 
 PKG_NAME="less"
-VERSION="458"
+PKG_VERSION="458"
 EXT="tar.gz"
 
 build() {
