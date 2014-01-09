@@ -3,11 +3,11 @@
 NAME="gcc"
 VERSION="4.8.1"
 EXT="tar.bz2"
-BUILDDIR="../${NAME}-build"
+BUILDDIR="${NAME}-build"
 
 build() {
-    mkdir $BUILDDIR
-    cd $BUILDDIR
+    mkdir ../$BUILDDIR
+    cd ../$BUILDDIR
 
     ../${SOURCES}/libstdc++-v3/configure	\
 	--host=$LFS_TGT				\

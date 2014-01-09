@@ -3,7 +3,7 @@
 NAME="gcc"
 VERSION="4.8.1"
 EXT="tar.bz2"
-BUILDDIR="../${NAME}-build"
+BUILDDIR="${NAME}-build"
 
 build() {
     tar -Jxf ${LFS}/sources/gmp-5.1.2.tar.xz
@@ -31,8 +31,8 @@ build() {
 
     sed -i '/k prot/agcc_cv_libc_provides_ssp=yes' gcc/configure
 
-    mkdir $BUILDDIR
-    cd $BUILDDIR
+    mkdir ../$BUILDDIR
+    cd ../$BUILDDIR
 
     ../${SOURCES}/configure					\
 	--target=$LFS_TGT					\

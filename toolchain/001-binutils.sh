@@ -3,14 +3,14 @@
 NAME="binutils"
 VERSION="2.23.2"
 EXT="tar.bz2"
-BUILDDIR="../${NAME}-build"
+BUILDDIR="${NAME}-build"
 
 build() {
     sed -i -e 's/@colophon/@@colophon/' \
 	-e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo
 
-    mkdir $BUILDDIR
-    cd $BUILDDIR
+    mkdir ../$BUILDDIR
+    cd ../$BUILDDIR
 
     ../${SOURCES}/configure		\
 	--prefix=/tools			\
