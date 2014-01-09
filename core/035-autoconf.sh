@@ -2,7 +2,7 @@
 
 PKG_NAME="autoconf"
 PKG_VERSION="2.69"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     ./configure \

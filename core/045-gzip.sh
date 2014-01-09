@@ -2,7 +2,7 @@
 
 PKG_NAME="gzip"
 PKG_VERSION="1.6"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     ./configure		\

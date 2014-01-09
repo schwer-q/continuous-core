@@ -2,7 +2,7 @@
 
 PKG_NAME="gawk"
 PKG_VERSION="4.1.0"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     ./configure		\

@@ -2,7 +2,7 @@
 
 PKG_NAME="inetutils"
 PKG_VERSION="1.9.1"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     sed -i -e '/gets is a/d' lib/stdio.in.h

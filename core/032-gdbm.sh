@@ -2,7 +2,7 @@
 
 PKG_NAME="gdbm"
 PKG_VERSION="1.10"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     ./configure		\

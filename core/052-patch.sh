@@ -2,7 +2,7 @@
 
 PKG_NAME="patch"
 PKG_VERSION="2.7.1"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     ./configure \

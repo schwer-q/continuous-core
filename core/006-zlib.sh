@@ -2,7 +2,7 @@
 
 PKG_NAME="zlib"
 PKG_VERSION="1.2.8"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     ./configure \

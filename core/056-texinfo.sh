@@ -2,7 +2,7 @@
 
 PKG_NAME="texinfo"
 PKG_VERSION="5.1"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     patch -Np1 -i /sources/texinfo-5.1-test-1.patch

@@ -2,7 +2,7 @@
 
 PKG_NAME="perl"
 PKG_VERSION="5.18.1"
-EXT="tar.bz2"
+PKG_ARCHIVE_EXT="tar.bz2"
 
 build() {
     echo "127.0.0.1 localhost" > /etc/hosts

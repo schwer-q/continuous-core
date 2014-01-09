@@ -2,7 +2,7 @@
 
 PKG_NAME="procps-ng"
 PKG_VERSION="3.3.8"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     ./configure					\

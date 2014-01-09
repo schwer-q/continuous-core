@@ -2,7 +2,7 @@
 
 PKG_NAME="man-pages"
 PKG_VERSION="3.53"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     make gz

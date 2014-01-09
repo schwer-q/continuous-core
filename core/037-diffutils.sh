@@ -2,7 +2,7 @@
 
 PKG_NAME="diffutils"
 PKG_VERSION="3.3"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     ./configure \

@@ -2,7 +2,7 @@
 
 PKG_NAME="libtool"
 PKG_VERSION="2.4.2"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     ./configure \

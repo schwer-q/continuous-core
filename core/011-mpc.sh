@@ -2,7 +2,7 @@
 
 PKG_NAME="mpc"
 PKG_VERSION="1.0.1"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     ./configure \

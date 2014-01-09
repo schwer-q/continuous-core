@@ -2,7 +2,7 @@
 
 PKG_NAME="psmisc"
 PKG_VERSION="22.20"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     ./configure \

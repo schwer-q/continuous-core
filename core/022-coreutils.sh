@@ -2,7 +2,7 @@
 
 PKG_NAME="coreutils"
 PKG_VERSION="8.21"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     patch -Np1 -i /sources/coreutils-8.21-i18n-1.patch

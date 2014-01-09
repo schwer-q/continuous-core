@@ -2,7 +2,7 @@
 
 PKG_NAME="iproute2"
 PKG_VERSION="3.10.0"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     sed -i '/^TARGETS/s@arpd@@g' misc/Makefile

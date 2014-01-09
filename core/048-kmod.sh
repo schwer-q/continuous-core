@@ -2,7 +2,7 @@
 
 PKG_NAME="kmod"
 PKG_VERSION="14"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     ./configure			\

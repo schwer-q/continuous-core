@@ -2,7 +2,7 @@
 
 PKG_NAME="readline"
 PKG_VERSION="6.2"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     sed -i '/MV.*old/d' Makefile.in

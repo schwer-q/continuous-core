@@ -2,7 +2,7 @@
 
 PKG_NAME="shadow"
 PKG_VERSION="4.1.5.1"
-EXT="tar.bz2"
+PKG_ARCHIVE_EXT="tar.bz2"
 
 build() {
     sed -i 's/groups$(EXEEXT) //' src/Makefile.in

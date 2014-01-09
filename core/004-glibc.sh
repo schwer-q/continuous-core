@@ -2,7 +2,7 @@
 
 PKG_NAME="glibc"
 PKG_VERSION="2.18"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 BUILDDIR="${PKG_NAME}-build"
 
 build() {

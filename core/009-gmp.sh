@@ -2,7 +2,7 @@
 
 PKG_NAME="gmp"
 PKG_VERSION="5.1.2"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     ./configure		\

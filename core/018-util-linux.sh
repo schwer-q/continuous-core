@@ -2,7 +2,7 @@
 
 PKG_NAME="util-linux"
 PKG_VERSION="2.23.2"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     sed -i -e 's@etc/adjtime@var/lib/hwclock/adjtime@g' \

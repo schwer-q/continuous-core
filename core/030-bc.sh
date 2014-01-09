@@ -2,7 +2,7 @@
 
 PKG_NAME="bc"
 PKG_VERSION="1.06.95"
-EXT="tar.bz2"
+PKG_ARCHIVE_EXT="tar.bz2"
 
 build() {
     ./configure			\

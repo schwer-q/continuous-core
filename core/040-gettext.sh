@@ -2,7 +2,7 @@
 
 PKG_NAME="gettext"
 PKG_VERSION="0.18.3"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     ./configure		\

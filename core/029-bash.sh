@@ -2,7 +2,7 @@
 
 PKG_NAME="bash"
 PKG_VERSION="4.2"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     patch -Np1 -i /sources/bash-4.2-fixes-12.patch

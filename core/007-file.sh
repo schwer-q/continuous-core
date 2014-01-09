@@ -2,7 +2,7 @@
 
 PKG_NAME="file"
 PKG_VERSION="5.14"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     ./configure \

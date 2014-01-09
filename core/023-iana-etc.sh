@@ -2,7 +2,7 @@
 
 PKG_NAME="iana-etc"
 PKG_VERSION="2.30"
-EXT="tar.bz2"
+PKG_ARCHIVE_EXT="tar.bz2"
 
 build() {
     make

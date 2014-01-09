@@ -2,7 +2,7 @@
 
 PKG_NAME="pkg-config"
 PKG_VERSION="0.28"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     ./configure			\

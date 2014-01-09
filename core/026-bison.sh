@@ -2,7 +2,7 @@
 
 PKG_NAME="bison"
 PKG_VERSION="3.0"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     ./configure \

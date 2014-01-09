@@ -2,7 +2,7 @@
 
 PKG_NAME="less"
 PKG_VERSION="458"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     ./configure			\

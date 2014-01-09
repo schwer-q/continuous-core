@@ -2,7 +2,7 @@
 
 PKG_NAME="grub"
 PKG_VERSION="2.00"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     sed -i -e '/gets is a/d' grub-core/gnulib/stdio.in.h

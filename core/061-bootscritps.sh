@@ -2,7 +2,7 @@
 
 PKG_NAME="lfs-bootscripts"
 PKG_VERSION="20130821"
-EXT="tar.bz2"
+PKG_ARCHIVE_EXT="tar.bz2"
 NO_BUILD="yes"
 
 install_() {

@@ -2,7 +2,7 @@
 
 PKG_NAME="systemd"
 PKG_VERSION="206"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     tar -xvf /sources/udev-lfs-206-1.tar.bz2

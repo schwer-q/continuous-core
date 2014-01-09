@@ -2,7 +2,7 @@
 
 PKG_NAME="xz"
 PKG_VERSION="5.0.5"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     ./configure		\

@@ -38,7 +38,7 @@ clean() {
 
 . $1
 
-: ${PKG_ARCHIVE="${PKG_SOURCES}.${EXT}"}
+: ${PKG_ARCHIVE="${PKG_SOURCES}.${PKG_ARCHIVE_EXT}"}
 : ${BUILDDIR="${PKG_SOURCES}"}
 : ${DESTDIR="/"}
 : ${PKG_SOURCES="${PKG_NAME}-${PKG_VERSION}"}

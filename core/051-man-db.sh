@@ -2,7 +2,7 @@
 
 PKG_NAME="man-db"
 PKG_VERSION="2.6.5"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     ./configure					\

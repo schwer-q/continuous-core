@@ -2,7 +2,7 @@
 
 PKG_NAME="grep"
 PKG_VERSION="2.14"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     ./configure		\

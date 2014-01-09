@@ -2,7 +2,7 @@
 
 PKG_NAME="kbd"
 PKG_VERSION="1.15.5"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     patch -Np1 -i /sources/kbd-1.15.5-backspace-1.patch

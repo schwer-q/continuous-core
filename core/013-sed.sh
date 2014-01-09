@@ -2,7 +2,7 @@
 
 PKG_NAME="sed"
 PKG_VERSION="4.2.2"
-EXT="tar.bz2"
+PKG_ARCHIVE_EXT="tar.bz2"
 
 build() {
     ./configure		\

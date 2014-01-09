@@ -2,7 +2,7 @@
 
 PKG_NAME="tar"
 PKG_VERSION="1.26"
-EXT="tar.bz2"
+PKG_ARCHIVE_EXT="tar.bz2"
 
 build() {
     patch -Np1 -i /sources/tar-1.26-manpage-1.patch

@@ -2,7 +2,7 @@
 
 PKG_NAME="linux"
 PKG_VERSION="3.10.10"
-EXT="tar.xz"
+PKG_ARCHIVE_EXT="tar.xz"
 
 build() {
     make mrproper

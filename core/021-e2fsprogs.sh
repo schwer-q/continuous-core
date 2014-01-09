@@ -2,7 +2,7 @@
 
 PKG_NAME="e2fsprogs"
 PKG_VERSION="1.42.8"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     sed -i -e 's/mke2fs/$MKE2FS/' \

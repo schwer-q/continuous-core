@@ -2,7 +2,7 @@
 
 PKG_NAME="bzip2"
 PKG_VERSION="1.0.6"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     patch -Np1 -i /sources/bzip2-1.0.6-install_docs-1.patch

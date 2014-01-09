@@ -2,7 +2,7 @@
 
 PKG_NAME="flex"
 PKG_VERSION="2.5.37"
-EXT="tar.bz2"
+PKG_ARCHIVE_EXT="tar.bz2"
 
 build() {
     sed -i -e '/test-bison/d' tests/Makefile.in

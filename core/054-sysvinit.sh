@@ -2,7 +2,7 @@
 
 PKG_NAME="sysvinit"
 PKG_VERSION="2.88dsf"
-EXT="tar.bz2"
+PKG_ARCHIVE_EXT="tar.bz2"
 
 build() {
     sed -i 's@Sending processes@& configured via /etc/inittab@g' src/init.c

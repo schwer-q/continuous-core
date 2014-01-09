@@ -2,7 +2,7 @@
 
 PKG_NAME="groff"
 PKG_VERSION="1.22.2"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     PAGE="A4"	\

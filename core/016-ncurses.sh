@@ -2,7 +2,7 @@
 
 PKG_NAME="ncurses"
 PKG_VERSION="5.9"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     ./configure			\

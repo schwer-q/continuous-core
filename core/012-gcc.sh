@@ -2,7 +2,7 @@
 
 PKG_NAME="gcc"
 PKG_VERSION="4.8.1"
-EXT="tar.bz2"
+PKG_ARCHIVE_EXT="tar.bz2"
 BUILDDIR="${PKG_NAME}-build"
 
 build() {

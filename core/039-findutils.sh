@@ -2,7 +2,7 @@
 
 PKG_NAME="findutils"
 PKG_VERSION="4.4.2"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     ./configure				\

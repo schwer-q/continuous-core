@@ -2,7 +2,7 @@
 
 PKG_NAME="sysklogd"
 PKG_VERSION="1.5"
-EXT="tar.gz"
+PKG_ARCHIVE_EXT="tar.gz"
 
 build() {
     make
