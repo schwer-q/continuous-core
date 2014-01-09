@@ -29,27 +29,46 @@ fi
 # set -x
 
 unpack() {
-    test -z "$NO_UNPACK" || return 0
     tar xf $1
     
     cd $SOURCES
+}
+
+clean() {
+    rm -rf $SOURCES
+    test -d "$BUILDDIR" && rm -rf $BUILDDIR
+    return 0
 }
 
 . $1
 
 : ${SOURCES="${NAME}-${VERSION}"}
 : ${ARCHIVE="${SOURCES}.${EXT}"}
+: ${BUILDDIR="${SOURCES}"}
 
-echo "===> Unpacking ${NAME}-${VERSION}..."
-unpack ${LFS}/sources/$ARCHIVE
+if test -z "$NO_CLEAN"; then
+    cd $CURDIR
+    echo "===> Cleanning ${NAME}-${VERSION}..."
+    clean
+fi
 
-echo "===> Building ${NAME}-${VERSION}..."
-build
+if test -z "$NO_UNPACK"; then
+    echo "===> Unpacking ${NAME}-${VERSION}..."
+    unpack ${LFS}/sources/$ARCHIVE
+fi
+
+if test -z "$NO_BUILD"; then
+    echo "===> Building ${NAME}-${VERSION}..."
+    build
+fi
 
 echo "===> Installing ${NAME}-${VERSION}..."
-install
+install_
 
-cd $CURDIR
-echo "===> Cleanning ${NAME}-${VERSION}..."
-clean
+if test -z "$NO_CLEAN"; then
+    cd $CURDIR
+    echo "===> Cleanning ${NAME}-${VERSION}..."
+    clean
+fi
+
 exit 0

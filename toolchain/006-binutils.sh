@@ -3,13 +3,14 @@
 NAME="binutils"
 VERSION="2.23.2"
 EXT="tar.bz2"
+BUILDDIR="../${NAME}-build"
 
 build() {
     sed -i -e 's/@colophon/@@colophon/' \
 	-e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo
 
-    mkdir ../${NAME}-build
-    cd ../${NAME}-build
+    mkdir $BUILDDIR
+    cd $BUILDDIR
 
     ../${SOURCES}/configure		\
 	--prefix=/tools			\
@@ -22,15 +23,10 @@ build() {
     make
 }
 
-install() {
+install_() {
     make install
 
     make -C ld clean
     make -C ld LIB_PATH="/usr/lib:/lib"
     cp ld/ld-new /tools/bin
-}
-
-clean() {
-    rm -rf $SOURCES
-    rm -rf ${NAME}-build
 }

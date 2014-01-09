@@ -3,6 +3,7 @@
 NAME="glibc"
 VERSION="2.18"
 EXT="tar.xz"
+BUILDDIR="../${NAME}-build"
 
 build() {
     if test ! -r /usr/include/rpc/types.h; then
@@ -10,10 +11,10 @@ build() {
 	cp sunrpc/rpc/*.h /usr/include/rpc
     fi
 
-    sed -i -e 's/static __m128i/inline &/' sysdeps/x86_64/multiarch/strstr.c
+    mkdir $BUILDDIR
+    cd $BUILDDIR
 
-    mkdir ../${NAME}-build
-    cd ../${NAME}-build
+    sed -i -e 's/static __m128i/inline &/' sysdeps/x86_64/multiarch/strstr.c
 
     ../${SOURCES}/configure				\
 	--prefix=/tools					\
@@ -29,11 +30,6 @@ build() {
     make
 }
 
-install() {
+install_() {
     make install
-}
-
-clean() {
-    rm -rf $SOURCES
-    rm -rf ${NAME}-build
 }

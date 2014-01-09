@@ -17,14 +17,10 @@ build() {
     make
 }
 
-install() {
+install_() {
     make install
 
     chmod -v u+w /tools/lib/libtcl8.6.so
     make install-private-headers
     ln -fs tclsh8.6 /tools/bin/tclsh
-}
-
-clean() {
-    rm -rf $SOURCES
 }

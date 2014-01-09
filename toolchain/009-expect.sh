@@ -17,10 +17,6 @@ build() {
     make
 }
 
-install() {
+install_() {
     make SCRIPTS="" install
-}
-
-clean() {
-    rm -rf $SOURCES
 }

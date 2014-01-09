@@ -15,10 +15,6 @@ build() {
     make
 }
 
-install() {
+install_() {
     make install
-}
-
-clean() {
-    rm -rf $SOURCES
 }

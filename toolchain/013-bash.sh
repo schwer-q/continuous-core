@@ -14,12 +14,8 @@ build() {
     make
 }
 
-install() {
+install_() {
     make install
 
     ln -fs bash /tools/bin/sh
-}
-
-clean() {
-    rm -rf $SOURCES
 }

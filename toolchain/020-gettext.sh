@@ -15,10 +15,6 @@ build() {
     make -C src msgfmt
 }
 
-install() {
+install_() {
     cp src/msgfmt /tools/bin
-}
-
-clean() {
-    rm -rf $SOURCES
 }

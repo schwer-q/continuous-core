@@ -3,6 +3,7 @@
 NAME="gcc"
 VERSION="4.8.1"
 EXT="tar.bz2"
+BUILDDIR="../${NAME}-build"
 
 build() {
     cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
@@ -35,8 +36,8 @@ build() {
     mv mpc-1.0.1 mpc
     mv mpfr-3.1.2 mpfr
 
-    mkdir ../${NAME}-build
-    cd ../${NAME}-build
+    mkdir $BUILDDIR
+    cd $BUILDDIR
 
     ../${SOURCES}/configure					\
 	--prefix=/tools						\
@@ -59,13 +60,8 @@ build() {
     make
 }
 
-install() {
+install_() {
     make install
 
     ln -f -s gcc /tools/bin/cc
-}
-
-clean() {
-    rm -rf $SOURCES
-    rm -rf ${NAME}-build
 }

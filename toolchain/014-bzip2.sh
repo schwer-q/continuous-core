@@ -8,10 +8,6 @@ build() {
     make
 }
 
-install() {
+install_() {
     make PREFIX=/tools install
-}
-
-clean() {
-    rm -rf $SOURCES
 }

@@ -10,11 +10,7 @@ build() {
     make headers_check
 }
 
-install() {
+install_() {
     make INSTALL_HDR_PATH=dest headers_install
     cp -r dest/include/* /tools/include
-}
-
-clean() {
-    rm -rf $SOURCES
 }

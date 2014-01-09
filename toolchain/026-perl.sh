@@ -12,12 +12,8 @@ build() {
     make
 }
 
-install() {
+install_() {
     cp perl cpan/podlators/pod2man /tools/bin
     mkdir -p /tools/lib/perl5/5.18.1
     cp -R lib/* /tools/lib/perl5/5.18.1
-}
-
-clean() {
-    rm -rf $SOURCES
 }
