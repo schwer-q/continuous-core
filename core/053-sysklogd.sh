@@ -11,5 +11,5 @@ build() {
 install_() {
     make BINDIR=/sbin install
 
-    tar -cvf - -C $PKG_FILES | tar -xf - -C $DESTDIR
+    tar -cvf - -C $PKG_FILES . | tar -xf - -C $DESTDIR
 }

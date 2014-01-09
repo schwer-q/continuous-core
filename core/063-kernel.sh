@@ -7,7 +7,7 @@ EXT="tar.xz"
 build() {
     make mrproper
     
-    cp ${CURDIR}/kernel-config .config
+    tar -cvf - -C ${PKG_FILES}/build . | tar -xf - -C .
     make
 }
 
@@ -23,12 +23,5 @@ install_() {
 
     /usr/bin/install -v -m 755 -d /etc/modprobe.d
 
-    cat > /etc/modprobe.d/usb.conf << "EOF"
-# Begin /etc/modprobe.d/usb.conf
-
-install ohci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i ohci_hcd ; true
-install uhci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i uhci_hcd ; true
-
-# End /etc/modprobe.d/usb.conf
-EOF
+    tar -cvf - -C ${PKG_FILES}/install . | tar -xf - -C $DESTDIR
 }

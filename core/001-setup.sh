@@ -45,7 +45,7 @@ install_() {
 
     ln -sfv /proc/self/mounts /etc/mtab
 
-    tar -cvf - -C $PKG_FILES | tar -xf - -C $DESTDIR
+    tar -cvf - -C $PKG_FILES . | tar -xf - -C $DESTDIR
 
     touch			\
 	/var/log/btmp		\

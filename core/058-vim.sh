@@ -28,5 +28,5 @@ install_() {
 
     ln -sfv ../vim/vim74/doc /usr/share/doc/$PKG_SOURCES
 
-    tar -cvf - -C $PKG_FILES | tar -xf - -C $DESTDIR
+    tar -cvf - -C $PKG_FILES . | tar -xf - -C $DESTDIR
 }

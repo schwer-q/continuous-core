@@ -9,5 +9,5 @@ NO_CLEAN="yes"
 install_() {
     echo "HOSTNAME=lfs" > /etc/sysconfig/network
 
-    tar -cvf - -C $PKG_FILES | tar -xf - -C $DESTDIR
+    tar -cvf - -C $PKG_FILES . | tar -xf - -C $DESTDIR
 }

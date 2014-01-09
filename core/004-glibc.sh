@@ -29,7 +29,7 @@ install_() {
     cp -v ../${PKG_SOURCES}/sunrpc/rpcsvc/*.h	${DESTDIR}/usr/include/rpcsvc
     cp -v ../${PKG_SOURCES}/nis/rpcsvc/*.h	${DESTDIR}/usr/include/rpcsvc
 
-    tar -cvf - -C $PKG_FILES | tar -xf - -C $DESTDIR
+    tar -cvf - -C $PKG_FILES . | tar -xf - -C $DESTDIR
 
     mkdir -pv ${DESTDIR}/usr/lib/locale
     make localedata/install-locales
