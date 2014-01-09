@@ -3,6 +3,7 @@
 NAME="binutils"
 VERSION="2.23.2"
 EXT="tar.bz2"
+BUILDDIR="../${NAME}-build"
 
 build() {
     rm -fv etc/standards.info
@@ -11,7 +12,6 @@ build() {
     sed -i -e 's/@colophon/@@colophon/' \
 	-e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo
 
-    BUILDDIR="../${NAME}-build"
     mkdir -v $BUILDDIR
     cd $BUILDDIR
 

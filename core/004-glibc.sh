@@ -3,11 +3,11 @@
 NAME="glibc"
 VERSION="2.18"
 EXT="tar.xz"
+BUILDDIR="../${NAME}-build"
 
 build() {
     sed -i -e 's/static __m128i/inline &/' sysdeps/x86_64/multiarch/strstr.c
 
-    BUILDDIR="../${NAME}-build"
     mkdir -v $BUILDDIR
     cd $BUILDDIR
 

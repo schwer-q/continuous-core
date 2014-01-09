@@ -3,6 +3,7 @@
 NAME="gcc"
 VERSION="4.8.1"
 EXT="tar.bz2"
+BUILDDIR="../${NAME}-build"
 
 build() {
     case `uname -m` in
@@ -16,7 +17,6 @@ build() {
     mv -v libmudflap/testsuite/libmudflap.c++/pass41-frag.cxx \
 	libmudflap/testsuite/libmudflap.c++/pass41-frag.cxx.disable
 
-    BUILDDIR="../${NAME}-build"
     mkdir -pv $BUILDDIR
     cd $BUILDDIR
 
