@@ -5,8 +5,9 @@ VERSION="1.06.95"
 EXT="tar.bz2"
 
 build() {
-    ./configure		\
-	--prefix=/usr	\
+    ./configure			\
+	--prefix=/usr		\
+	--mandir=/usr/share/man	\
 	--with-readline
 
     make
