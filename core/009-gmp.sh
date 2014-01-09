@@ -15,7 +15,7 @@ build() {
 install_() {
     make install
 
-    mkdir -pv /usr/share/doc/$SOURCES
+    mkdir -pv /usr/share/doc/$PKG_SOURCES
     cp -v doc/isa_abi_headache doc/configuration doc/*.html \
-	/usr/share/doc/$SOURCES
+	/usr/share/doc/$PKG_SOURCES
 }

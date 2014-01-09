@@ -27,55 +27,55 @@ fi
 unpack() {
     tar xf $1
     
-    cd $SOURCES
+    cd $PKG_SOURCES
 }
 
 clean() {
-    rm -rf $SOURCES
+    rm -rf $PKG_SOURCES
     test -d "$BUILDDIR" && rm -rf $BUILDDIR
     return 0
 }
 
 . $1
 
-: ${SOURCES="${NAME}-${VERSION}"}
-: ${ARCHIVE="${SOURCES}.${EXT}"}
-: ${BUILDDIR="${SOURCES}"}
+: ${PKG_SOURCES="${NAME}-${VERSION}"}
+: ${ARCHIVE="${PKG_SOURCES}.${EXT}"}
+: ${BUILDDIR="${PKG_SOURCES}"}
 
-test -e /logs/$SOURCES && rm -f /logs/$SOURCES
+test -e /logs/$PKG_SOURCES && rm -f /logs/$PKG_SOURCES
 
 echo "$NAME $VERSION"
 if test -z "$NO_CLEAN"; then
     cd $CURDIR
     echo -n "  Cleanning..."
-    echo "===> Cleanning..." 2>&1 >> /logs/$SOURCES
-    clean 2>&1 >> /logs/$SOURCES
+    echo "===> Cleanning..." 2>&1 >> /logs/$PKG_SOURCES
+    clean 2>&1 >> /logs/$PKG_SOURCES
     echo " done."
 fi
 
 if test -z "$NO_UNPACK"; then
     echo -n "  Unpacking..."
-    echo "===> Unpacking..." 2>&1 >> /logs/$SOURCES
-    unpack ${LFS}/sources/$ARCHIVE 2>&1 >> /logs/$SOURCES
+    echo "===> Unpacking..." 2>&1 >> /logs/$PKG_SOURCES
+    unpack ${LFS}/sources/$ARCHIVE 2>&1 >> /logs/$PKG_SOURCES
     echo " done."
 fi
 
 if test -z "$NO_BUILD"; then
     echo -n "  Building..."
-    echo "===> Building..." 2>&1 >> /logs/$SOURCES
-    build 2>&1 >> /logs/$SOURCES
+    echo "===> Building..." 2>&1 >> /logs/$PKG_SOURCES
+    build 2>&1 >> /logs/$PKG_SOURCES
     echo " done."
 fi
 
 echo -n "  Installing..."
-install_ 2>&1 >> /logs/$SOURCES
+install_ 2>&1 >> /logs/$PKG_SOURCES
 echo " done."
 
 if test -z "$NO_CLEAN"; then
     cd $CURDIR
     echo -n "  Cleanning..."
-    echo "===> Cleanning..." 2>&1 >> /logs/$SOURCES
-    clean 2>&1 >> /logs/$SOURCES
+    echo "===> Cleanning..." 2>&1 >> /logs/$PKG_SOURCES
+    clean 2>&1 >> /logs/$PKG_SOURCES
     echo " done."
 fi
 

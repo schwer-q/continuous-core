@@ -8,7 +8,7 @@ build() {
     ./configure		\
 	--prefix=/usr	\
 	--libdir=/lib	\
-	--docdir=/usr/share/doc/$SOURCES
+	--docdir=/usr/share/doc/$PKG_SOURCES
 
     make
 }

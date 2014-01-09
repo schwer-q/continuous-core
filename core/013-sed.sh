@@ -8,7 +8,7 @@ build() {
     ./configure		\
 	--prefix=/usr	\
 	--bindir=/bin	\
-	--htmldir=/usr/share/doc/$SOURCES
+	--htmldir=/usr/share/doc/$PKG_SOURCES
 
     make
     

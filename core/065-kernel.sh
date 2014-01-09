@@ -18,8 +18,8 @@ install_() {
     cp -v System.map /boot/System.map-$VERSION
     cp -v .config /boot/config-$VERSION
 
-    /usr/bin/install -d /usr/share/doc/$SOURCES
-    cp -r Documentation/* /usr/share/doc/$SOURCES
+    /usr/bin/install -d /usr/share/doc/$PKG_SOURCES
+    cp -r Documentation/* /usr/share/doc/$PKG_SOURCES
 
     /usr/bin/install -v -m 755 -d /etc/modprobe.d
 

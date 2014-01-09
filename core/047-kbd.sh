@@ -22,6 +22,6 @@ build() {
 install_() {
     make install
 
-    mkdir -pv		/usr/share/doc/$SOURCES
-    cp -R -v doc/*	/usr/share/doc/$SOURCES
+    mkdir -pv		/usr/share/doc/$PKG_SOURCES
+    cp -R -v doc/*	/usr/share/doc/$PKG_SOURCES
 }

@@ -9,7 +9,7 @@ build() {
 	--prefix=/usr		\
 	--with-internal-glib	\
 	--disable-host-tool	\
-	--docdir=/usr/share/doc/$SOURCES
+	--docdir=/usr/share/doc/$PKG_SOURCES
     
     make
 }

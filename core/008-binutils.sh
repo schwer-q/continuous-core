@@ -15,7 +15,7 @@ build() {
     mkdir -v ../$BUILDDIR
     cd ../$BUILDDIR
 
-    ../${SOURCES}/configure	\
+    ../${PKG_SOURCES}/configure	\
 	--prefix=/usr		\
 	--host=$LFS_TGT		\
 	--enable-shared
@@ -26,5 +26,5 @@ build() {
 install_() {
     make tooldir=/usr install
 
-    cp -v ../${SOURCES}/include/libiberty.h /usr/include
+    cp -v ../${PKG_SOURCES}/include/libiberty.h /usr/include
 }

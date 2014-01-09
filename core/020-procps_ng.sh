@@ -9,7 +9,7 @@ build() {
 	--prefix=/usr				\
 	--exec-prefix=				\
 	--libdir=/usr/lib			\
-	--docdir=/usr/share/doc/$SOURCES	\
+	--docdir=/usr/share/doc/$PKG_SOURCES	\
 	--disable-static			\
 	--disable-skill				\
 	--disable-kill

@@ -29,7 +29,7 @@ install_() {
     ln -sfv ../../lib/libreadline.so.6 /usr/lib/libreadline.so
     ln -sfv ../../lib/libhistory.so.6 /usr/lib/libhistory.so
 
-    mkdir -pv /usr/share/doc/$SOURCES
+    mkdir -pv /usr/share/doc/$PKG_SOURCES
     /tools/bin/install -v -m 644 doc/*.ps doc/*.pdf doc/*.html doc/*.dvi \
-	/usr/share/doc/$SOURCES
+	/usr/share/doc/$PKG_SOURCES
 }

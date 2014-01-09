@@ -37,6 +37,6 @@ install_() {
     ln -sfv libncursesw.a	/usr/lib/libcursesw.a
     ln -sfv libncurses.a	/usr/lib/libcurses.a
 
-    mkdir -pv		/usr/share/$SOURCES
-    cp -v -R doc/*	/usr/share/$SOURCES
+    mkdir -pv		/usr/share/$PKG_SOURCES
+    cp -v -R doc/*	/usr/share/$PKG_SOURCES
 }

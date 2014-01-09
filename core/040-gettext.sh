@@ -7,7 +7,7 @@ EXT="tar.gz"
 build() {
     ./configure		\
 	--prefix=/usr	\
-	--docdir=/usr/share/doc/$SOURCES
+	--docdir=/usr/share/doc/$PKG_SOURCES
 
     make
 }

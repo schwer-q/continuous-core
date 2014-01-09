@@ -8,7 +8,7 @@ build() {
     ./configure			\
 	--prefix=/usr		\
 	--enable-thread-safe	\
-	--docdir=/usr/share/doc/$SOURCES
+	--docdir=/usr/share/doc/$PKG_SOURCES
 
     make
 }

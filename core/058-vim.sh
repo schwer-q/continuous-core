@@ -3,7 +3,7 @@
 NAME="vim"
 VERSION="7.4"
 EXT="tar.bz2"
-SOURCES="${NAME}74"
+PKG_SOURCES="${NAME}74"
 ARCHIVE="${NAME}-${VERSION}.${EXT}"
 
 build() {
@@ -26,7 +26,7 @@ install_() {
 	ln -sfv vim.1 $(dirname $L)/vi.1
     done
 
-    ln -sfv ../vim/vim74/doc /usr/share/doc/$SOURCES
+    ln -sfv ../vim/vim74/doc /usr/share/doc/$PKG_SOURCES
 
     cat > /etc/vimrc << "EOF"
 " Begin /etc/vimrc

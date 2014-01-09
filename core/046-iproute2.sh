@@ -15,6 +15,6 @@ build() {
 install_() {
     make DESTDIR=			\
 	MANDIR=/usr/share/man		\
-	DOCDIR=/usr/share/doc/$SOURCES	\
+	DOCDIR=/usr/share/doc/$PKG_SOURCES	\
 	install
 }

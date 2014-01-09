@@ -21,7 +21,7 @@ build() {
 install_() {
     make install
 
-    make -C doc install-html docdir=/usr/share/doc/$SOURCES
+    make -C doc install-html docdir=/usr/share/doc/$PKG_SOURCES
 
     perl tarman > /usr/share/man/man1/tar.1
 }

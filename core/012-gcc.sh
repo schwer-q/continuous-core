@@ -20,7 +20,7 @@ build() {
     mkdir -pv ../$BUILDDIR
     cd ../$BUILDDIR
 
-    ../${SOURCES}/configure		\
+    ../${PKG_SOURCES}/configure		\
 	--prefix=/usr			\
 	--host=$LFS_TGT			\
 	--libexecdir=/usr/lib		\

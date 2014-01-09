@@ -15,7 +15,7 @@ build() {
 install_() {
     make install
 
-    mkdir -pv /usr/share/doc/$SOURCES
-    cp -v doc/awkforai.txt /usr/share/doc/$SOURCES
-    cp -v doc/*.eps doc/*.pdf doc/*.jpg /usr/share/doc/$SOURCES
+    mkdir -pv /usr/share/doc/$PKG_SOURCES
+    cp -v doc/awkforai.txt /usr/share/doc/$PKG_SOURCES
+    cp -v doc/*.eps doc/*.pdf doc/*.jpg /usr/share/doc/$PKG_SOURCES
 }

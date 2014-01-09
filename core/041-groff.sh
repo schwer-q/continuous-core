@@ -13,7 +13,7 @@ build() {
 }
 
 install_() {
-    mkdir -pv /usr/share/doc/${SOURCES}/pdf
+    mkdir -pv /usr/share/doc/${PKG_SOURCES}/pdf
 
     make install
 

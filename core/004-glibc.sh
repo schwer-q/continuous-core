@@ -11,7 +11,7 @@ build() {
     mkdir -v ../$BUILDDIR
     cd ../$BUILDDIR
 
-    ../${SOURCES}/configure	\
+    ../${PKG_SOURCES}/configure	\
 	--prefix=/usr		\
 	--disable-profile	\
 	--enable-kernel=2.6.32	\
@@ -25,9 +25,9 @@ install_() {
 
     make install
 
-    cp -v ../${SOURCES}/sunrpc/rpc/*.h /usr/include/rpc
-    cp -v ../${SOURCES}/sunrpc/rpcsvc/*.h /usr/include/rpcsvc
-    cp -v ../${SOURCES}/nis/rpcsvc/*.h /usr/include/rpcsvc
+    cp -v ../${PKG_SOURCES}/sunrpc/rpc/*.h	/usr/include/rpc
+    cp -v ../${PKG_SOURCES}/sunrpc/rpcsvc/*.h	/usr/include/rpcsvc
+    cp -v ../${PKG_SOURCES}/nis/rpcsvc/*.h	/usr/include/rpcsvc
 
     mkdir -pv /usr/lib/locale
 
@@ -81,6 +81,6 @@ EOF
 }
 
 clean() {
-    rm -rf $SOURCES
+    rm -rf $PKG_SOURCES
     rm -rf ${NAME}-build
 }
