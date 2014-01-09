@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="zlib"
+PKG_NAME="zlib"
 VERSION="1.2.8"
 EXT="tar.xz"
 

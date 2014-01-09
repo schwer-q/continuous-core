@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="pkg-config"
+PKG_NAME="pkg-config"
 VERSION="0.28"
 EXT="tar.gz"
 

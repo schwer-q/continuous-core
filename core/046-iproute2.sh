@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="iproute2"
+PKG_NAME="iproute2"
 VERSION="3.10.0"
 EXT="tar.xz"
 

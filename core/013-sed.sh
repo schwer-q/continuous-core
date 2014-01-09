@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="sed"
+PKG_NAME="sed"
 VERSION="4.2.2"
 EXT="tar.bz2"
 

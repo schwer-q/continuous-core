@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="iana-etc"
+PKG_NAME="iana-etc"
 VERSION="2.30"
 EXT="tar.bz2"
 

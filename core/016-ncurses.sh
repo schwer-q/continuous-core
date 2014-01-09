@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="ncurses"
+PKG_NAME="ncurses"
 VERSION="5.9"
 EXT="tar.gz"
 

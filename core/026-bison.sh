@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="bison"
+PKG_NAME="bison"
 VERSION="3.0"
 EXT="tar.xz"
 

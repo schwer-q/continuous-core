@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="libpipeline"
+PKG_NAME="libpipeline"
 VERSION="1.2.4"
 EXT="tar.gz"
 

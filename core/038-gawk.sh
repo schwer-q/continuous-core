@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="gawk"
+PKG_NAME="gawk"
 VERSION="4.1.0"
 EXT="tar.xz"
 

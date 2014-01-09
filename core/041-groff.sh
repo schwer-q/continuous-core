@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="groff"
+PKG_NAME="groff"
 VERSION="1.22.2"
 EXT="tar.gz"
 

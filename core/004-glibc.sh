@@ -1,9 +1,9 @@
 #!/bin/sh -
 
-NAME="glibc"
+PKG_NAME="glibc"
 VERSION="2.18"
 EXT="tar.xz"
-BUILDDIR="${NAME}-build"
+BUILDDIR="${PKG_NAME}-build"
 
 build() {
     sed -i -e 's/static __m128i/inline &/' sysdeps/x86_64/multiarch/strstr.c

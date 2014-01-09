@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="patch"
+PKG_NAME="patch"
 VERSION="2.7.1"
 EXT="tar.xz"
 

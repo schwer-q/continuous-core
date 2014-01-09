@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="procps-ng"
+PKG_NAME="procps-ng"
 VERSION="3.3.8"
 EXT="tar.xz"
 

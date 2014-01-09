@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="less"
+PKG_NAME="less"
 VERSION="458"
 EXT="tar.gz"
 

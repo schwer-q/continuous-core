@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="grub"
+PKG_NAME="grub"
 VERSION="2.00"
 EXT="tar.xz"
 

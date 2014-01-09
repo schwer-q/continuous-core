@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="util-linux"
+PKG_NAME="util-linux"
 VERSION="2.23.2"
 EXT="tar.xz"
 

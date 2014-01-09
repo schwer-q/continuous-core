@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="diffutils"
+PKG_NAME="diffutils"
 VERSION="3.3"
 EXT="tar.xz"
 

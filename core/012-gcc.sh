@@ -1,9 +1,9 @@
 #!/bin/sh -
 
-NAME="gcc"
+PKG_NAME="gcc"
 VERSION="4.8.1"
 EXT="tar.bz2"
-BUILDDIR="${NAME}-build"
+BUILDDIR="${PKG_NAME}-build"
 
 build() {
     case `uname -m` in

@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="make"
+PKG_NAME="make"
 VERSION="3.82"
 EXT="tar.bz2"
 

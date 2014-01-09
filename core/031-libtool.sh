@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="libtool"
+PKG_NAME="libtool"
 VERSION="2.4.2"
 EXT="tar.gz"
 

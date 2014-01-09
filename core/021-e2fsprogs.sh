@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="e2fsprogs"
+PKG_NAME="e2fsprogs"
 VERSION="1.42.8"
 EXT="tar.gz"
 

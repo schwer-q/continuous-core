@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="coreutils"
+PKG_NAME="coreutils"
 VERSION="8.21"
 EXT="tar.xz"
 

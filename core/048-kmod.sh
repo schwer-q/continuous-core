@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="kmod"
+PKG_NAME="kmod"
 VERSION="14"
 EXT="tar.xz"
 

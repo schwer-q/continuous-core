@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="gzip"
+PKG_NAME="gzip"
 VERSION="1.6"
 EXT="tar.xz"
 

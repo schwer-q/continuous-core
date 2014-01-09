@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="gmp"
+PKG_NAME="gmp"
 VERSION="5.1.2"
 EXT="tar.xz"
 

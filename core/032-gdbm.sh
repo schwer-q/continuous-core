@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="gdbm"
+PKG_NAME="gdbm"
 VERSION="1.10"
 EXT="tar.gz"
 

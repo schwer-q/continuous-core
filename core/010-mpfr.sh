@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="mpfr"
+PKG_NAME="mpfr"
 VERSION="3.1.2"
 EXT="tar.xz"
 

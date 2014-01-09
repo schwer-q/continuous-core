@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="tar"
+PKG_NAME="tar"
 VERSION="1.26"
 EXT="tar.bz2"
 

@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="bzip2"
+PKG_NAME="bzip2"
 VERSION="1.0.6"
 EXT="tar.gz"
 

@@ -1,13 +1,13 @@
 #!/bin/sh -
 
-NAME="findutils"
+PKG_NAME="findutils"
 VERSION="4.4.2"
 EXT="tar.gz"
 
 build() {
     ./configure				\
 	--prefix=/usr			\
-	--libexecdir=/usr/lib/$NAME	\
+	--libexecdir=/usr/lib/$PKG_NAME	\
 	--localstatedir=/var/lib/locate
 
     make

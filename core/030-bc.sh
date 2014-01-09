@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="bc"
+PKG_NAME="bc"
 VERSION="1.06.95"
 EXT="tar.bz2"
 

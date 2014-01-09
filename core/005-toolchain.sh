@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="toolchain"
+PKG_NAME="toolchain"
 VERSION="1.0"
 
 NO_UNPACK="yes"

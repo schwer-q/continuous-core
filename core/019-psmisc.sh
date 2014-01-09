@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="psmisc"
+PKG_NAME="psmisc"
 VERSION="22.20"
 EXT="tar.gz"
 

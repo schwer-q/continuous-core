@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="man-db"
+PKG_NAME="man-db"
 VERSION="2.6.5"
 EXT="tar.xz"
 

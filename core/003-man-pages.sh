@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="man-pages"
+PKG_NAME="man-pages"
 VERSION="3.53"
 EXT="tar.xz"
 

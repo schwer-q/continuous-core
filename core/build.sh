@@ -41,12 +41,12 @@ clean() {
 : ${PKG_ARCHIVE="${PKG_SOURCES}.${EXT}"}
 : ${BUILDDIR="${PKG_SOURCES}"}
 : ${DESTDIR="/"}
-: ${PKG_SOURCES="${NAME}-${VERSION}"}
+: ${PKG_SOURCES="${PKG_NAME}-${VERSION}"}
 PKG_FILES=`echo $1 | sed 's/\.sh$//'`
 
 test -e /logs/$PKG_SOURCES && rm -f /logs/$PKG_SOURCES
 
-echo "$NAME $VERSION"
+echo "$PKG_NAME $VERSION"
 if test -z "$NO_CLEAN"; then
     cd $CURDIR
     echo -n "  Cleanning..."

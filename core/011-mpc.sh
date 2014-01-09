@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="mpc"
+PKG_NAME="mpc"
 VERSION="1.0.1"
 EXT="tar.gz"
 

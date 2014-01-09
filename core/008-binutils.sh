@@ -1,9 +1,9 @@
 #!/bin/sh -
 
-NAME="binutils"
+PKG_NAME="binutils"
 VERSION="2.23.2"
 EXT="tar.bz2"
-BUILDDIR="${NAME}-build"
+BUILDDIR="${PKG_NAME}-build"
 
 build() {
     rm -fv etc/standards.info

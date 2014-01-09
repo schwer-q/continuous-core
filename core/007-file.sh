@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="file"
+PKG_NAME="file"
 VERSION="5.14"
 EXT="tar.gz"
 

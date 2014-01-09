@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="sysvinit"
+PKG_NAME="sysvinit"
 VERSION="2.88dsf"
 EXT="tar.bz2"
 

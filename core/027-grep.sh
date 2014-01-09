@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="grep"
+PKG_NAME="grep"
 VERSION="2.14"
 EXT="tar.xz"
 

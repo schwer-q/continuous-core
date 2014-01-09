@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="kbd"
+PKG_NAME="kbd"
 VERSION="1.15.5"
 EXT="tar.gz"
 

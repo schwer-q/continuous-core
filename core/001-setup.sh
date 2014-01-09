@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="setup"
+PKG_NAME="setup"
 VERSION="1.0"
 NO_UNPACK="yes"
 NO_BUILD="yes"

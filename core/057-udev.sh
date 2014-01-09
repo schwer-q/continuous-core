@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="systemd"
+PKG_NAME="systemd"
 VERSION="206"
 EXT="tar.xz"
 

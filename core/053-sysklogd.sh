@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="sysklogd"
+PKG_NAME="sysklogd"
 VERSION="1.5"
 EXT="tar.gz"
 

@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="inetutils"
+PKG_NAME="inetutils"
 VERSION="1.9.1"
 EXT="tar.gz"
 

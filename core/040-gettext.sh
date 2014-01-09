@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="gettext"
+PKG_NAME="gettext"
 VERSION="0.18.3"
 EXT="tar.gz"
 

@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="texinfo"
+PKG_NAME="texinfo"
 VERSION="5.1"
 EXT="tar.xz"
 

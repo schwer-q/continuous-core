@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="automake"
+PKG_NAME="automake"
 VERSION="1.14"
 EXT="tar.xz"
 

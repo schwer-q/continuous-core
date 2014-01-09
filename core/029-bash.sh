@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="bash"
+PKG_NAME="bash"
 VERSION="4.2"
 EXT="tar.gz"
 

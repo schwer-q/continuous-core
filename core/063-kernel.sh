@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="linux"
+PKG_NAME="linux"
 VERSION="3.10.10"
 EXT="tar.xz"
 

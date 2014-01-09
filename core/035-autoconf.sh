@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="autoconf"
+PKG_NAME="autoconf"
 VERSION="2.69"
 EXT="tar.xz"
 

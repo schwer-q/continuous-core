@@ -1,6 +1,6 @@
 #!/bin/sh -
 
-NAME="m4"
+PKG_NAME="m4"
 VERSION="1.4.16"
 EXT="tar.bz2"
 
