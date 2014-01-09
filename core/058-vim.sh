@@ -4,7 +4,7 @@ NAME="vim"
 VERSION="7.4"
 EXT="tar.bz2"
 PKG_SOURCES="${NAME}74"
-ARCHIVE="${NAME}-${VERSION}.${EXT}"
+PKG_ARCHIVE="${NAME}-${VERSION}.${EXT}"
 
 build() {
     echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h

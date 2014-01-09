@@ -38,7 +38,7 @@ clean() {
 
 . $1
 
-: ${ARCHIVE="${PKG_SOURCES}.${EXT}"}
+: ${PKG_ARCHIVE="${PKG_SOURCES}.${EXT}"}
 : ${BUILDDIR="${PKG_SOURCES}"}
 : ${DESTDIR="/"}
 : ${PKG_SOURCES="${NAME}-${VERSION}"}
@@ -58,7 +58,7 @@ fi
 if test -z "$NO_UNPACK"; then
     echo -n "  Unpacking..."
     echo "===> Unpacking..." 2>&1 >> /logs/$PKG_SOURCES
-    unpack ${LFS}/sources/$ARCHIVE 2>&1 >> /logs/$PKG_SOURCES
+    unpack ${LFS}/sources/$PKG_ARCHIVE 2>&1 >> /logs/$PKG_SOURCES
     echo " done."
 fi
 
