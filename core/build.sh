@@ -7,6 +7,7 @@ umask 022
 CURDIR=$(pwd)
 HOME="/root"
 LC_ALL="POSIX"
+LFS_TGT="`uname -m`-lfs-linux-gnu"
 PATH="/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin"
 export HOME LC_ALL PATH
 

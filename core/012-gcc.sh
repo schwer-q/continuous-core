@@ -3,7 +3,7 @@
 NAME="gcc"
 VERSION="4.8.1"
 EXT="tar.bz2"
-BUILDDIR="../${NAME}-build"
+BUILDDIR="${NAME}-build"
 
 build() {
     case `uname -m` in
@@ -17,11 +17,12 @@ build() {
     mv -v libmudflap/testsuite/libmudflap.c++/pass41-frag.cxx \
 	libmudflap/testsuite/libmudflap.c++/pass41-frag.cxx.disable
 
-    mkdir -pv $BUILDDIR
-    cd $BUILDDIR
+    mkdir -pv ../$BUILDDIR
+    cd ../$BUILDDIR
 
     ../${SOURCES}/configure		\
 	--prefix=/usr			\
+	--host=$LFS_TGT			\
 	--libexecdir=/usr/lib		\
 	--enable-shared			\
 	--enable-thread=posix		\
