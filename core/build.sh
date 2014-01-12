@@ -7,8 +7,9 @@ umask 022
 CURDIR=$(pwd)
 HOME="/root"
 LC_ALL="POSIX"
+LFS="/"
 PATH="/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin"
-export HOME LC_ALL PATH
+export HOME LC_ALL LFS PATH
 
 if test -z "$1"; then
     files=`find $CURDIR | egrep '[[:digit:]]{3}-[[:alnum:]_-]+\.sh$' | sort -V`

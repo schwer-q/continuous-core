@@ -62,7 +62,7 @@ do_unpack() {
     echo -e -n "\tUnpacking..."
     log_phase "unpack"
     log "$PKG_ARCHIVE"
-    log_exec tar xf /sources/$PKG_ARCHIVE
+    log_exec tar xf ${LFS}/sources/$PKG_ARCHIVE
     cd $PKG_SOURCES
     echo -e "\tdone."
     return 0

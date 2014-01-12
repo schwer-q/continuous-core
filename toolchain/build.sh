@@ -37,7 +37,7 @@ fi
 
 PKG_SCRIPT=`basename $(echo $1 | sed 's/\.sh$//')`
 PKG_FILES="${CURDIR}/files/$PKG_SCRIPT"
-PKG_LOGFILE="/logs/${PKG_SCRIPT}.log"
+PKG_LOGFILE="${LFS}/logs/toolchain/${PKG_SCRIPT}.log"
 PKG_SOURCES="${CURDIR}/${PKG_SOURCES}"
 
 log_start
