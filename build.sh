@@ -146,7 +146,7 @@ clean
 downlod
 
 echo "===> Build started on `date`"
-start_time=`date '+s'`
+start_time=`date '+%s'`
 
 cd toolchain
 test -z "$SKIP_TOOLCHAIN" && ./build.sh
@@ -165,7 +165,7 @@ if test -z "$SKIP_CORE"; then
     core_unsetup
 fi
 
-end_time=`date '+s'`
+end_time=`date '+%s'`
 show_time
 echo "===> Build completed on `date`"
 exit 0
