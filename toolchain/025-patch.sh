@@ -1,16 +1,16 @@
 #!/bin/sh -
 
-NAME="patch"
-VERSION="2.7.1"
-EXT="tar.xz"
+PKG_NAME="patch"
+PKG_VERSION="2.7.1"
+PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     ./configure \
 	--prefix=/tools
-    
+
     make
 }
 
-install_() {
+_install() {
     make install
 }

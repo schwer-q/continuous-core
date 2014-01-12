@@ -1,16 +1,16 @@
 #!/bin/sh -
 
-NAME="gzip"
-VERSION="1.6"
-EXT="tar.xz"
+PKG_NAME="gzip"
+PKG_VERSION="1.6"
+PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     ./configure \
 	--prefix=/tools
-    
+
     make
 }
 
-install_() {
+_install() {
     make install
 }

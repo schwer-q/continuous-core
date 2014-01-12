@@ -1,11 +1,12 @@
 #!/bin/sh -
 
-NAME="gcc"
-VERSION="4.8.1"
-EXT="tar.bz2"
-BUILDDIR="${NAME}-build"
+PKG_NAME="gcc"
+PKG_VERSION="4.8.1"
+PKG_ARCHIVE_EXT="tar.bz2"
 
-build() {
+USE_EXT_BUILD="yes"
+
+_build() {
     tar -Jxf ${LFS}/sources/gmp-5.1.2.tar.xz
     tar -Jxf ${LFS}/sources/mpfr-3.1.2.tar.xz
     tar -zxf ${LFS}/sources/mpc-1.0.1.tar.gz
@@ -31,10 +32,9 @@ build() {
 
     sed -i '/k prot/agcc_cv_libc_provides_ssp=yes' gcc/configure
 
-    mkdir ../$BUILDDIR
-    cd ../$BUILDDIR
+    cd $PKG_BUILD
 
-    ../${SOURCES}/configure					\
+    $PKG_SOURCES/configure					\
 	--target=$LFS_TGT					\
 	--prefix=/tools						\
 	--with-sysroot=$LFS					\
@@ -62,7 +62,7 @@ build() {
     make
 }
 
-install_() {
+_install() {
     make install
 
     ln -f -s libgcc.a `${LFS_TGT}-gcc -print-libgcc-file-name | sed 's/libgcc/&_eh/'`

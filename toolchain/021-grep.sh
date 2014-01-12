@@ -1,16 +1,16 @@
 #!/bin/sh -
 
-NAME="grep"
-VERSION="2.14"
-EXT="tar.xz"
+PKG_NAME="grep"
+PKG_VERSION="2.14"
+PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     ./configure \
 	--prefix=/tools
-    
+
     make
 }
 
-install_() {
+_install() {
     make install
 }

@@ -1,16 +1,16 @@
 #!/bin/sh -
 
-NAME="diffutils"
-VERSION="3.3"
-EXT="tar.xz"
+PKG_NAME="diffutils"
+PKG_VERSION="3.3"
+PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     ./configure \
 	--prefix=/tools
-    
+
     make
 }
 
-install_() {
+_install() {
     make install
 }

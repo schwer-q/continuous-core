@@ -1,16 +1,16 @@
 #!/bin/sh -
 
-NAME="check"
-VERSION="0.9.10"
-EXT="tar.gz"
+PKG_NAME="check"
+PKG_VERSION="0.9.10"
+PKG_ARCHIVE_EXT="tar.gz"
 
-build() {
+_build() {
     ./configure \
 	--prefix=/tools
 
     make
 }
 
-install_() {
+_install() {
     make install
 }

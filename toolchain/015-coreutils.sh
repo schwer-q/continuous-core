@@ -1,18 +1,18 @@
 #!/bin/sh -
 
-NAME="coreutils"
-VERSION="8.21"
-EXT="tar.xz"
+PKG_NAME="coreutils"
+PKG_VERSION="8.21"
+PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     FORCE_UNSAFE_CONFIGURE=1	\
     ./configure			\
 	--prefix=/tools		\
 	--enable-install-program=hostname
-    
+
     make
 }
 
-install_() {
+_install() {
     make install
 }

@@ -1,10 +1,10 @@
 #!/bin/sh -
 
-NAME="ncurses"
-VERSION="5.9"
-EXT="tar.gz"
+PKG_NAME="ncurses"
+PKG_VERSION="5.9"
+PKG_ARCHIVE_EXT="tar.gz"
 
-build() {
+_build() {
     ./configure		\
 	--prefix=/tools	\
 	--with-shared	\
@@ -15,6 +15,6 @@ build() {
     make
 }
 
-install_() {
+_install() {
     make install
 }

@@ -1,11 +1,12 @@
 #!/bin/sh -
 
-NAME="gcc"
-VERSION="4.8.1"
-EXT="tar.bz2"
-BUILDDIR="${NAME}-build"
+PKG_NAME="gcc"
+PKG_VERSION="4.8.1"
+PKG_ARCHIVE_EXT="tar.bz2"
 
-build() {
+USE_EXT_BUILD="yes"
+
+_build() {
     cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
 	`dirname $(${LFS_TGT}-gcc -print-libgcc-file-name)`/include-fixed/limits.h
 
@@ -36,10 +37,9 @@ build() {
     mv mpc-1.0.1 mpc
     mv mpfr-3.1.2 mpfr
 
-    mkdir ../$BUILDDIR
-    cd ../$BUILDDIR
+    cd $PKG_BUILD
 
-    ../${SOURCES}/configure					\
+    ${PKG_SOURCES}/configure					\
 	--prefix=/tools						\
 	--build=$LFS_TGT					\
 	--host=$LFS_TGT						\
@@ -60,7 +60,7 @@ build() {
     make
 }
 
-install_() {
+_install() {
     make install
 
     ln -f -s gcc /tools/bin/cc

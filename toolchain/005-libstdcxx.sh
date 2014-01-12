@@ -1,15 +1,15 @@
 #!/bin/sh -
 
-NAME="gcc"
-VERSION="4.8.1"
-EXT="tar.bz2"
-BUILDDIR="${NAME}-build"
+PKG_NAME="gcc"
+PKG_VERSION="4.8.1"
+PKG_ARCHIVE_EXT="tar.bz2"
 
-build() {
-    mkdir ../$BUILDDIR
-    cd ../$BUILDDIR
+USE_EXT_BUILD="yes"
 
-    ../${SOURCES}/libstdc++-v3/configure	\
+_build() {
+    cd $PKG_BUILD
+
+    ${PKG_SOURCES}/libstdc++-v3/configure	\
 	--host=$LFS_TGT				\
 	--prefix=/tools				\
 	--disable-multilib			\
@@ -17,11 +17,11 @@ build() {
 	--disable-nls				\
 	--disable-libstdcxx-threads		\
 	--disable-libstdcxx-pch			\
-	--with-gxx-include-dir=/tools/${LFS_TGT}/include/c++/4.8.1
+	--with-gxx-include-dir=/tools/${LFS_TGT}/include/c++/$PKG_VERSION
 
     make
 }
 
-install_() {
+_install() {
     make install
 }

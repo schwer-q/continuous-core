@@ -1,16 +1,16 @@
 #!/bin/sh -
 
-NAME="findutils"
-VERSION="4.4.2"
-EXT="tar.gz"
+PKG_NAME="findutils"
+PKG_VERSION="4.4.2"
+PKG_ARCHIVE_EXT="tar.gz"
 
-build() {
+_build() {
     ./configure \
 	--prefix=/tools
-    
+
     make
 }
 
-install_() {
+_install() {
     make install
 }

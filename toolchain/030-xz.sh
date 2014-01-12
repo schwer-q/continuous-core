@@ -1,16 +1,16 @@
 #!/bin/sh -
 
-NAME="xz"
-VERSION="5.0.5"
-EXT="tar.xz"
+PKG_NAME="xz"
+PKG_VERSION="5.0.5"
+PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     ./configure \
 	--prefix=/tools
-    
+
     make
 }
 
-install_() {
+_install() {
     make install
 }

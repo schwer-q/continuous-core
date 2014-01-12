@@ -1,10 +1,10 @@
 #!/bin/sh -
 
-NAME="dejagnu"
-VERSION="1.5.1"
-EXT="tar.gz"
+PKG_NAME="dejagnu"
+PKG_VERSION="1.5.1"
+PKG_ARCHIVE_EXT="tar.gz"
 
-build() {
+_build() {
     cp configure configure.orig
     sed 's:/usr/local/bin:/bin:' configure.orig > configure
 
@@ -12,6 +12,6 @@ build() {
 	--prefix=/tools
 }
 
-install_() {
+_install() {
     make install
 }

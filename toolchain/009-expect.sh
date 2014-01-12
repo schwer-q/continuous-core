@@ -1,11 +1,11 @@
 #!/bin/sh -
 
-NAME="expect"
-VERSION="5.45"
-EXT="tar.gz"
-SOURCES="${NAME}${VERSION}"
+PKG_NAME="expect"
+PKG_VERSION="5.45"
+PKG_ARCHIVE_EXT="tar.gz"
+PKG_SOURCES="${PKG_NAME}${PKG_VERSION}"
 
-build() {
+_build() {
     cp configure configure.orig
     sed 's:/usr/local/bin:/bin:' configure.orig > configure
 
@@ -17,6 +17,6 @@ build() {
     make
 }
 
-install_() {
+_install() {
     make SCRIPTS="" install
 }

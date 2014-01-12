@@ -1,11 +1,12 @@
 #!/bin/sh -
 
-NAME="owner"
-VERSION="1.0"
+PKG_NAME="owner"
+PKG_VERSION="1.0"
+
 NO_BUILD="yes"
 NO_CLEAN="yes"
 NO_UNPACK="yes"
 
-install_() {
+_install() {
     chown -R root:root ${LFS}/tools
 }

@@ -1,16 +1,16 @@
 #!/bin/sh -
 
-NAME="linux"
-VERSION="3.10.10"
-EXT="tar.xz"
+PKG_NAME="linux"
+PKG_VERSION="3.10.10"
+PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     make mrproper
 
     make headers_check
 }
 
-install_() {
+_install() {
     make INSTALL_HDR_PATH=dest headers_install
     cp -r dest/include/* /tools/include
 }

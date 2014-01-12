@@ -1,16 +1,16 @@
 #!/bin/sh -
 
-NAME="texinfo"
-VERSION="5.1"
-EXT="tar.xz"
+PKG_NAME="texinfo"
+PKG_VERSION="5.1"
+PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     ./configure \
 	--prefix=/tools
-    
+
     make
 }
 
-install_() {
+_install() {
     make install
 }

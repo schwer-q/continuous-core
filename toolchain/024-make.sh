@@ -1,16 +1,16 @@
 #!/bin/sh -
 
-NAME="make"
-VERSION="3.82"
-EXT="tar.bz2"
+PKG_NAME="make"
+PKG_VERSION="3.82"
+PKG_ARCHIVE_EXT="tar.bz2"
 
-build() {
+_build() {
     ./configure \
 	--prefix=/tools
-    
+
     make
 }
 
-install_() {
+_install() {
     make install
 }

@@ -1,13 +1,13 @@
 #!/bin/sh -
 
-NAME="bzip2"
-VERSION="1.0.6"
-EXT="tar.gz"
+PKG_NAME="bzip2"
+PKG_VERSION="1.0.6"
+PKG_ARCHIVE_EXT="tar.gz"
 
-build() {
+_build() {
     make
 }
 
-install_() {
+_install() {
     make PREFIX=/tools install
 }

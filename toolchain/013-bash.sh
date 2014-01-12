@@ -1,10 +1,10 @@
 #!/bin/sh -
 
-NAME="bash"
-VERSION="4.2"
-EXT="tar.gz"
+PKG_NAME="bash"
+PKG_VERSION="4.2"
+PKG_ARCHIVE_EXT="tar.gz"
 
-build() {
+_build() {
     patch -Np1 -i ${LFS}/sources/bash-4.2-fixes-12.patch
 
     ./configure		\
@@ -14,7 +14,7 @@ build() {
     make
 }
 
-install_() {
+_install() {
     make install
 
     ln -fs bash /tools/bin/sh

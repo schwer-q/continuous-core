@@ -1,20 +1,20 @@
 #!/bin/sh -
 
-NAME="gettext"
-VERSION="0.18.3"
-EXT="tar.gz"
+PKG_NAME="gettext"
+PKG_VERSION="0.18.3"
+PKG_ARCHIVE_EXT="tar.gz"
 
-build() {
+_build() {
     cd gettext-tools
     EMACS="no"		\
     ./configure		\
 	--prefix=/tools	\
 	--disable-shared
-    
+
     make -C gnulib-lib
     make -C src msgfmt
 }
 
-install_() {
+_install() {
     cp src/msgfmt /tools/bin
 }

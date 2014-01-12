@@ -1,18 +1,18 @@
 #!/bin/sh -
 
-NAME="binutils"
-VERSION="2.23.2"
-EXT="tar.bz2"
-BUILDDIR="${NAME}-build"
+PKG_NAME="binutils"
+PKG_VERSION="2.23.2"
+PKG_ARCHIVE_EXT="tar.bz2"
 
-build() {
+USE_EXT_BUILD="yes"
+
+_build() {
     sed -i -e 's/@colophon/@@colophon/' \
 	-e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo
 
-    mkdir ../$BUILDDIR
-    cd ../$BUILDDIR
+    cd $PKG_BUILD
 
-    ../${SOURCES}/configure		\
+    ${PKG_SOURCES}/configure		\
 	--prefix=/tools			\
 	--build=$LFS_TGT		\
 	--host=$LFS_TGT			\

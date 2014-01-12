@@ -1,16 +1,16 @@
 #!/bin/sh -
 
-NAME="gawk"
-VERSION="4.1.0"
-EXT="tar.xz"
+PKG_NAME="gawk"
+PKG_VERSION="4.1.0"
+PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     ./configure \
 	--prefix=/tools
-    
+
     make
 }
 
-install_() {
+_install() {
     make install
 }
