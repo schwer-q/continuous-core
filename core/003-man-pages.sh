@@ -4,10 +4,8 @@ PKG_NAME="man-pages"
 PKG_VERSION="3.53"
 PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
-    make gz
-}
+NO_BUILD="yes"
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
 }

@@ -4,7 +4,7 @@ PKG_NAME="findutils"
 PKG_VERSION="4.4.2"
 PKG_ARCHIVE_EXT="tar.gz"
 
-build() {
+_build() {
     ./configure				\
 	--prefix=/usr			\
 	--libexecdir=/usr/lib/$PKG_NAME	\
@@ -13,10 +13,10 @@ build() {
     make
 }
 
-install_() {
-    make install
-    
-    mv -v /usr/bin/find /bin
+_install() {
+    make install DESTDIR=$DESTDIR
 
-    sed -i 's/find:=${BINDIR}/find:=\/bin/' /usr/bin/updatedb
+    mv -v ${DESTDIR}/usr/bin/find ${DESTDIR}/bin
+
+    sed -i 's/find:=${BINDIR}/find:=\/bin/' ${DESTDIR}/usr/bin/updatedb
 }

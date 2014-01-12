@@ -4,7 +4,7 @@ PKG_NAME="ncurses"
 PKG_VERSION="5.9"
 PKG_ARCHIVE_EXT="tar.gz"
 
-build() {
+_build() {
     ./configure			\
 	--prefix=/usr		\
 	--mandir=/usr/share/man	\
@@ -16,27 +16,27 @@ build() {
     make
 }
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
 
-    mv -v /usr/lib/libncursesw.so.5* /lib
-    ln -sfv ../../lib/libncursesw.so.5 /usr/lib/libncursesw.so
+    mv -v ${DESTDIR}/usr/lib/libncursesw.so.5* ${DESTDIR}/lib
+    ln -sfv ../../lib/libncursesw.so.5 ${DESTDIR}/usr/lib/libncursesw.so
 
     for lib in ncurses form panel menu ; do
-	rm -fv				/usr/lib/${lib}.so
-	echo "INPUT(-l${lib}w)" >	/usr/lib/lib${lib}.so
-	ln -sfv lib${lib}w.a		/usr/lib/lib${lib}.a
-	ln -sfv ${lib}w.pc		/usr/lib/pkgconfig/${lib}.pc
+	rm -fv				${DESTDIR}/usr/lib/${lib}.so
+	echo "INPUT(-l${lib}w)" >	${DESTDIR}/usr/lib/lib${lib}.so
+	ln -sfv lib${lib}w.a		${DESTDIR}/usr/lib/lib${lib}.a
+	ln -sfv ${lib}w.pc		${DESTDIR}/usr/lib/pkgconfig/${lib}.pc
     done
 
-    ln -sfv libncurses++w.a /usr/lib/libncurses++.a
+    ln -sfv libncurses++w.a ${DESTDIR}/usr/lib/libncurses++.a
 
-    rm -fv			/usr/lib/libcursesw.so
-    echo "INPUT(-lncursesw)" >	/usr/lib/libcursesw.so
-    ln -sfv libncurses.so	/usr/lib/libcurses.so
-    ln -sfv libncursesw.a	/usr/lib/libcursesw.a
-    ln -sfv libncurses.a	/usr/lib/libcurses.a
+    rm -fv			${DESTDIR}/usr/lib/libcursesw.so
+    echo "INPUT(-lncursesw)" >	${DESTDIR}/usr/lib/libcursesw.so
+    ln -sfv libncurses.so	${DESTDIR}/usr/lib/libcurses.so
+    ln -sfv libncursesw.a	${DESTDIR}/usr/lib/libcursesw.a
+    ln -sfv libncurses.a	${DESTDIR}/usr/lib/libcurses.a
 
-    mkdir -pv		/usr/share/$PKG_SOURCES
-    cp -v -R doc/*	/usr/share/$PKG_SOURCES
+    mkdir -pv		${DESTDIR}/usr/share/$PKG_SOURCES
+    cp -v -R doc/*	${DESTDIR}/usr/share/$PKG_SOURCES
 }

@@ -4,7 +4,7 @@ PKG_NAME="readline"
 PKG_VERSION="6.2"
 PKG_ARCHIVE_EXT="tar.gz"
 
-build() {
+_build() {
     sed -i '/MV.*old/d' Makefile.in
     sed -i '/{OLDSUFF}/c:' support/shlib-install
 
@@ -17,19 +17,19 @@ build() {
     make SHLIB_LIBS=-lncurses
 }
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
 
-    mv -v /lib/libreadline.a /usr/lib
-    mv -v /lib/libhistory.a  /usr/lib
+    mv -v ${DESTDIR}/lib/libreadline.a ${DESTDIR}/usr/lib
+    mv -v ${DESTDIR}/lib/libhistory.a  ${DESTDIR}/usr/lib
 
-    rm -v /lib/libreadline.so
-    rm -v /lib/libhistory.so
+    rm -v ${DESTDIR}/lib/libreadline.so
+    rm -v ${DESTDIR}/lib/libhistory.so
 
-    ln -sfv ../../lib/libreadline.so.6 /usr/lib/libreadline.so
-    ln -sfv ../../lib/libhistory.so.6 /usr/lib/libhistory.so
+    ln -sfv ../../lib/libreadline.so.6 ${DESTDIR}/usr/lib/libreadline.so
+    ln -sfv ../../lib/libhistory.so.6 ${DESTDIR}/usr/lib/libhistory.so
 
-    mkdir -pv /usr/share/doc/$PKG_SOURCES
-    /tools/bin/install -v -m 644 doc/*.ps doc/*.pdf doc/*.html doc/*.dvi \
-	/usr/share/doc/$PKG_SOURCES
+    mkdir -pv ${DESTDIR}/usr/share/doc/$PKG_SOURCES
+    install -v -m 644 doc/*.ps doc/*.pdf doc/*.html doc/*.dvi \
+	${DESTDIR}/usr/share/doc/$PKG_SOURCES
 }

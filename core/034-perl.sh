@@ -4,7 +4,7 @@ PKG_NAME="perl"
 PKG_VERSION="5.18.1"
 PKG_ARCHIVE_EXT="tar.bz2"
 
-build() {
+_build() {
     echo "127.0.0.1 localhost" > /etc/hosts
 
     sed -i -e "s|BUILD_ZLIB\s*= True|BUILD_ZLIB = False|" \
@@ -24,6 +24,6 @@ build() {
     make
 }
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
 }

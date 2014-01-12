@@ -2,11 +2,13 @@
 
 PKG_NAME="setup"
 PKG_VERSION="1.0"
-NO_UNPACK="yes"
+
 NO_BUILD="yes"
 NO_CLEAN="yes"
+NO_UNPACK="yes"
 
-install_() {
+_install() {
+    echo "toot"
     mkdir -pv		\
 	/bin		\
 	/boot		\
@@ -45,7 +47,7 @@ install_() {
 
     ln -sfv /proc/self/mounts /etc/mtab
 
-    tar -cvf - -C $PKG_FILES . | tar -xf - -C $DESTDIR
+    dump_files $PKG_FILES $DESTDIR
 
     touch			\
 	/var/log/btmp		\

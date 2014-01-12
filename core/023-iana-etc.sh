@@ -4,10 +4,10 @@ PKG_NAME="iana-etc"
 PKG_VERSION="2.30"
 PKG_ARCHIVE_EXT="tar.bz2"
 
-build() {
+_build() {
     make
 }
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
 }

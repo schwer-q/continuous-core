@@ -6,10 +6,10 @@ PKG_ARCHIVE_EXT="tar.bz2"
 
 USE_EXT_BUILD="yes"
 
-build() {
+_build() {
     rm -fv etc/standards.info
     sed -i.bak '/^INFO/s/standards.info //' etc/Makefile.in
-    
+
     sed -i -e 's/@colophon/@@colophon/' \
 	-e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo
 
@@ -23,8 +23,8 @@ build() {
     make tooldir=/usr
 }
 
-install_() {
-    make tooldir=/usr install
+_install() {
+    make tooldir=/usr install DESTDIR=$DESTDIR
 
-    cp -v ../${PKG_SOURCES}/include/libiberty.h /usr/include
+    cp -v ${PKG_SOURCES}/include/libiberty.h ${DESTDIR}/usr/include
 }

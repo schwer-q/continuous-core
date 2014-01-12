@@ -4,12 +4,12 @@ PKG_NAME="sysklogd"
 PKG_VERSION="1.5"
 PKG_ARCHIVE_EXT="tar.gz"
 
-build() {
+_build() {
     make
 }
 
-install_() {
-    make BINDIR=/sbin install
+_install() {
+    make BINDIR=/sbin install DESTDIR=$DESTDIR
 
-    tar -cvf - -C $PKG_FILES . | tar -xf - -C $DESTDIR
+    dump_files $PKG_FILES $DESTDIR
 }

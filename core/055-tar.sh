@@ -4,7 +4,7 @@ PKG_NAME="tar"
 PKG_VERSION="1.26"
 PKG_ARCHIVE_EXT="tar.bz2"
 
-build() {
+_build() {
     patch -Np1 -i /sources/tar-1.26-manpage-1.patch
 
     sed -i -e '/gets is a/d' gnu/stdio.in.h
@@ -18,10 +18,9 @@ build() {
     make
 }
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
+    make -C doc install-html docdir=/usr/share/doc/$PKG_SOURCES DESTDIR=$DESTDIR
 
-    make -C doc install-html docdir=/usr/share/doc/$PKG_SOURCES
-
-    perl tarman > /usr/share/man/man1/tar.1
+    perl tarman > ${DESTDIR}/usr/share/man/man1/tar.1
 }

@@ -4,14 +4,14 @@ PKG_NAME="systemd"
 PKG_VERSION="206"
 PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     tar -xvf /sources/udev-lfs-206-1.tar.bz2
-    
+
     make -f udev-lfs-206-1/Makefile.lfs
 }
 
-install_() {
-    make -f udev-lfs-206-1/Makefile.lfs install
+_install() {
+    make -f udev-lfs-206-1/Makefile.lfs install DESTDIR=$DESTDIR
 
     build/udevadm hwdb --update
 

@@ -7,7 +7,6 @@ umask 022
 CURDIR=$(pwd)
 HOME="/root"
 LC_ALL="POSIX"
-LFS_TGT="`uname -m`-lfs-linux-gnu"
 PATH="/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin"
 export HOME LC_ALL PATH
 
@@ -24,67 +23,24 @@ fi
 
 # set -x
 
-unpack() {
-    tar xf $1
-    
-    cd $PKG_SOURCES
-}
-
-clean() {
-    rm -rf $PKG_SOURCES
-    test -d "$PKG_BUILD" && rm -rf $PKG_BUILD
-    return 0
-}
-
+. lib/common.sh
 . $1
 
-: ${DESTDIR="/"}
-: ${PKG_ARCHIVE="${PKG_SOURCES}.${PKG_ARCHIVE_EXT}"}
 : ${PKG_SOURCES="${PKG_NAME}-${PKG_VERSION}"}
+: ${PKG_ARCHIVE="${PKG_SOURCES}.${PKG_ARCHIVE_EXT}"}
 
-PKG_FILES=`echo $1 | sed 's/\.sh$//'`
+PKG_SCRIPT=`basename $(echo $1 | sed 's/\.sh$//')`
+PKG_FILES="${CURDIR}/files/$PKG_SCRIPT"
+PKG_LOGFILE="/logs/${PKG_SCRIPT}.log"
 PKG_SOURCES="${CURDIR}/${PKG_SOURCES}"
 
-if test -n "$USE_EXT_BUILD"; then
-    PKG_BUILD="${PKG_SOURCES}/../${PKG_NAME}-build"
-    mkdir -p $PKG_BUILD
-fi
-
-test -e /logs/$PKG_SOURCES && rm -f /logs/$PKG_SOURCES
-
-echo "$PKG_NAME $PKG_VERSION"
-if test -z "$NO_CLEAN"; then
-    cd $CURDIR
-    echo -n "  Cleanning..."
-    echo "===> Cleanning..." 2>&1 >> /logs/$PKG_SOURCES
-    clean 2>&1 >> /logs/$PKG_SOURCES
-    echo " done."
-fi
-
-if test -z "$NO_UNPACK"; then
-    echo -n "  Unpacking..."
-    echo "===> Unpacking..." 2>&1 >> /logs/$PKG_SOURCES
-    unpack ${LFS}/sources/$PKG_ARCHIVE 2>&1 >> /logs/$PKG_SOURCES
-    echo " done."
-fi
-
-if test -z "$NO_BUILD"; then
-    echo -n "  Building..."
-    echo "===> Building..." 2>&1 >> /logs/$PKG_SOURCES
-    build 2>&1 >> /logs/$PKG_SOURCES
-    echo " done."
-fi
-
-echo -n "  Installing..."
-install_ 2>&1 >> /logs/$PKG_SOURCES
-echo " done."
-
-if test -z "$NO_CLEAN"; then
-    cd $CURDIR
-    echo -n "  Cleanning..."
-    echo "===> Cleanning..." 2>&1 >> /logs/$PKG_SOURCES
-    clean 2>&1 >> /logs/$PKG_SOURCES
-    echo " done."
-fi
+check_status
+log_start
+do_clean
+do_unpack
+do_build
+do_install
+do_clean
+log_stop
 
 exit 0

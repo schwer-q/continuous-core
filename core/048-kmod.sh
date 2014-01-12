@@ -4,7 +4,7 @@ PKG_NAME="kmod"
 PKG_VERSION="14"
 PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     ./configure			\
 	--prefix=/usr		\
         --bindir=/bin		\
@@ -17,12 +17,12 @@ build() {
     make
 }
 
-install_() {
-    make pkgconfigdir=/usr/lib/pkgconfig install
-    
+_install() {
+    make pkgconfigdir=/usr/lib/pkgconfig install DESTDIR=$DESTDIR
+
     for target in depmod insmod modinfo modprobe rmmod ; do
-	ln -sv ../bin/kmod /sbin/$target
+	ln -sv ../bin/kmod ${DESTDIR}/sbin/$target
     done
 
-    ln -sfv kmod /bin/lsmod
+    ln -sfv kmod ${DESTDIR}/bin/lsmod
 }

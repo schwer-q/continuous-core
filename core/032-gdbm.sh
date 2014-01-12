@@ -4,7 +4,7 @@ PKG_NAME="gdbm"
 PKG_VERSION="1.10"
 PKG_ARCHIVE_EXT="tar.gz"
 
-build() {
+_build() {
     ./configure		\
 	--prefix=/usr	\
 	--enable-libgdbm-compat
@@ -12,6 +12,6 @@ build() {
     make
 }
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
 }

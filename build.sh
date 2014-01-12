@@ -27,6 +27,7 @@ core_setup() {
 
     mkdir -p ${LFS_CORE}/build
     cp -r core/* ${LFS_CORE}/build
+    cp -r lib	${LFS_CORE}/build
 
     mkdir -p ${LFS_CORE}/sources
     mkdir -p ${LFS_CORE}/tools

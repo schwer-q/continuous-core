@@ -4,7 +4,7 @@ PKG_NAME="grub"
 PKG_VERSION="2.00"
 PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     sed -i -e '/gets is a/d' grub-core/gnulib/stdio.in.h
 
     ./configure			\
@@ -17,6 +17,6 @@ build() {
     make
 }
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
 }

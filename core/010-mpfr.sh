@@ -4,18 +4,17 @@ PKG_NAME="mpfr"
 PKG_VERSION="3.1.2"
 PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     ./configure			\
 	--prefix=/usr		\
 	--enable-thread-safe	\
 	--docdir=/usr/share/doc/$PKG_SOURCES
 
     make
+    make html
 }
 
-install_() {
-    make install
-
-    make html
-    make install-html
+_install() {
+    make install DESTDIR=$DESTDIR
+    make install-html DESTDIR=$DESTDIR
 }

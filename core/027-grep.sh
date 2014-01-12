@@ -4,7 +4,7 @@ PKG_NAME="grep"
 PKG_VERSION="2.14"
 PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     ./configure		\
 	--prefix=/usr	\
 	--bindir=/bin
@@ -12,6 +12,6 @@ build() {
     make
 }
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
 }

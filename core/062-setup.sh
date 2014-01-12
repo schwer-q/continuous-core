@@ -2,12 +2,13 @@
 
 PKG_NAME="setup"
 PKG_VERSION="1.0"
-NO_UNPACK="yes"
+
 NO_BUILD="yes"
 NO_CLEAN="yes"
+NO_UNPACK="yes"
 
-install_() {
+_install() {
     echo "HOSTPKG_NAME=lfs" > /etc/sysconfig/network
 
-    tar -cvf - -C $PKG_FILES . | tar -xf - -C $DESTDIR
+    dump_files $PKG_FILES $DESTDIR
 }

@@ -4,7 +4,7 @@ PKG_NAME="groff"
 PKG_VERSION="1.22.2"
 PKG_ARCHIVE_EXT="tar.gz"
 
-build() {
+_build() {
     PAGE="A4"	\
     ./configure	\
 	--prefix=/usr
@@ -12,11 +12,11 @@ build() {
     make
 }
 
-install_() {
-    mkdir -pv /usr/share/doc/${PKG_SOURCES}/pdf
+_install() {
+    mkdir -pv ${DESTDIR}/usr/share/doc/${PKG_SOURCES}/pdf
 
-    make install
+    make install DESTDIR=$DESTDIR
 
-    ln -sfv eqn /usr/bin/geqn
-    ln -sfv tbl /usr/bin/gtbl
+    ln -sfv eqn ${DESTDIR}/usr/bin/geqn
+    ln -sfv tbl ${DESTDIR}/usr/bin/gtbl
 }

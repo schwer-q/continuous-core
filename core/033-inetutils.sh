@@ -4,7 +4,7 @@ PKG_NAME="inetutils"
 PKG_VERSION="1.9.1"
 PKG_ARCHIVE_EXT="tar.gz"
 
-build() {
+_build() {
     sed -i -e '/gets is a/d' lib/stdio.in.h
 
     ./configure \
@@ -20,11 +20,11 @@ build() {
     make
 }
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
 
-    mv -v /usr/bin/hostname	/bin
-    mv -v /usr/bin/ping		/bin
-    mv -v /usr/bin/ping6	/bin
-    mv -v /usr/bin/traceroute	/bin
+    mv -v ${DESTDIR}/usr/bin/hostname	${DESTDIR}/bin
+    mv -v ${DESTDIR}/usr/bin/ping	${DESTDIR}/bin
+    mv -v ${DESTDIR}/usr/bin/ping6	${DESTDIR}/bin
+    mv -v ${DESTDIR}/usr/bin/traceroute	${DESTDIR}/bin
 }

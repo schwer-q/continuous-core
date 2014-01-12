@@ -4,16 +4,16 @@ PKG_NAME="psmisc"
 PKG_VERSION="22.20"
 PKG_ARCHIVE_EXT="tar.gz"
 
-build() {
+_build() {
     ./configure \
 	--prefix=/usr
 
     make
 }
 
-install_() {
-    make install
+_install() {
+    make install $DESTDIR
 
-    mv -v /usr/bin/fuser	/bin
-    mv -v /usr/bin/killall	/bin
+    mv -v ${DESTDIR}/usr/bin/fuser	${DESTDIR}/bin
+    mv -v ${DESTDIR}/usr/bin/killall	${DESTDIR}/bin
 }

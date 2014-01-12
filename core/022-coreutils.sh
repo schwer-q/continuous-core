@@ -4,7 +4,7 @@ PKG_NAME="coreutils"
 PKG_VERSION="8.21"
 PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     patch -Np1 -i /sources/coreutils-8.21-i18n-1.patch
 
     FORCE_UNSAFE_CONFIGURE=1	\
@@ -16,20 +16,21 @@ build() {
     make
 }
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
 
     progs="[ cat chgrp chmod chown cp date dd df
 echo false head ln ls mkdir mknod mv nice pwd rm
 rmdir sleep stty sync test true uname "
 
     for p in $progs ; do
-	mv -v /usr/bin/$p /bin
+	mv -v ${DESTDIR}/usr/bin/$p ${DESTDIR}/bin
     done
-    
-    mv -v /usr/bin/chroot /usr/sbin
-    mv -v /usr/share/man/man1/chroot.1 /usr/share/man/man8/chroot.8
-    sed -i s/\"1\"/\"8\"/1 /usr/share/man/man8/chroot.8
 
-    
+    mv -v ${DESTDIR}/usr/bin/chroot ${DESTDIR}/usr/sbin
+    mv -v ${DESTDIR}/usr/share/man/man1/chroot.1 \
+	${DESTDIR}/usr/share/man/man8/chroot.8
+    sed -i s/\"1\"/\"8\"/1 ${DESTDIR}/usr/share/man/man8/chroot.8
+
+
 }

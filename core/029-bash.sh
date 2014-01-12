@@ -4,9 +4,9 @@ PKG_NAME="bash"
 PKG_VERSION="4.2"
 PKG_ARCHIVE_EXT="tar.gz"
 
-build() {
+_build() {
     patch -Np1 -i /sources/bash-4.2-fixes-12.patch
-    
+
     ./configure					\
 	--prefix=/usr				\
 	--bindir=/bin				\
@@ -17,6 +17,6 @@ build() {
     make
 }
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
 }

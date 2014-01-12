@@ -6,7 +6,7 @@ PKG_ARCHIVE_EXT="tar.bz2"
 
 USE_EXT_BUILD="yes"
 
-build() {
+_build() {
     case `uname -m` in
 	i?86)
 	    sed -i 's/^T_CFLAGS =$/& -fomit-frame-pointer/' gcc/Makefile.in ;;
@@ -37,12 +37,12 @@ build() {
     make
 }
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
 
-    ln -sfv ../usr/bin/cpp	/lib
-    ln -sfv gcc			/usr/bin/cc
+    ln -sfv ../usr/bin/cpp	${DESTDIR}/lib
+    ln -sfv gcc			${DESTDIR}/usr/bin/cc
 
-    mkdir -pv /usr/share/gdb/auto-load/usr/lib
-    mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib
+    mkdir -pv ${DESTDIR}/usr/share/gdb/auto-load/usr/lib
+    mv -v ${DESTDIR}/usr/lib/*gdb.py ${DESTDIR}/usr/share/gdb/auto-load/usr/lib
 }

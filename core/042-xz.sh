@@ -4,7 +4,7 @@ PKG_NAME="xz"
 PKG_VERSION="5.0.5"
 PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     ./configure		\
 	--prefix=/usr	\
 	--libdir=/lib	\
@@ -13,6 +13,6 @@ build() {
     make
 }
 
-install_() {
-    make pkgconfigdir=/usr/lib/pkgconfig install
+_install() {
+    make pkgconfigdir=/usr/lib/pkgconfig install DESTDIR=$DESTDIR
 }

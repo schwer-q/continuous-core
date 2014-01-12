@@ -4,7 +4,7 @@ PKG_NAME="shadow"
 PKG_VERSION="4.1.5.1"
 PKG_ARCHIVE_EXT="tar.bz2"
 
-build() {
+_build() {
     sed -i 's/groups$(EXEEXT) //' src/Makefile.in
     find man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;
 
@@ -17,10 +17,10 @@ build() {
     make
 }
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
 
-    mv -v /usr/bin/passwd /bin
+    mv -v ${DESTDIR}/usr/bin/passwd ${DESTDIR}/bin
 
     pwconv
     grpconv

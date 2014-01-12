@@ -4,7 +4,7 @@ PKG_NAME="gmp"
 PKG_VERSION="5.1.2"
 PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     ./configure		\
 	--prefix=/usr	\
 	--enable-cxx
@@ -12,10 +12,10 @@ build() {
     make
 }
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
 
-    mkdir -pv /usr/share/doc/$PKG_SOURCES
+    mkdir -pv ${DESTDIR}/usr/share/doc/$PKG_SOURCES
     cp -v doc/isa_abi_headache doc/configuration doc/*.html \
-	/usr/share/doc/$PKG_SOURCES
+	${DESTDIR}/usr/share/doc/$PKG_SOURCES
 }

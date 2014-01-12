@@ -4,7 +4,7 @@ PKG_NAME="man-db"
 PKG_VERSION="2.6.5"
 PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     ./configure					\
 	--prefix=/usr				\
         --libexecdir=/usr/lib			\
@@ -18,6 +18,6 @@ build() {
     make
 }
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
 }

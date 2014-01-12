@@ -4,7 +4,7 @@ PKG_NAME="automake"
 PKG_VERSION="1.14"
 PKG_ARCHIVE_EXT="tar.xz"
 
-build() {
+_build() {
     patch -Np1 -i /sources/automake-1.14-test-1.patch
 
     ./configure		\
@@ -14,6 +14,6 @@ build() {
     make
 }
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
 }

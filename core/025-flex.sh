@@ -4,7 +4,7 @@ PKG_NAME="flex"
 PKG_VERSION="2.5.37"
 PKG_ARCHIVE_EXT="tar.bz2"
 
-build() {
+_build() {
     sed -i -e '/test-bison/d' tests/Makefile.in
 
     ./configure		\
@@ -14,12 +14,11 @@ build() {
     make
 }
 
-install_() {
-    make install
+_install() {
+    make install DESTDIR=$DESTDIR
 
-    ln -sfv libfl.a /usr/lib/libl.a
+    ln -sfv libfl.a ${DESTDIR}/usr/lib/libl.a
 
-    tar -cvf - -C $PKG_FILES . | tar -xf - -C $DESTDIR
-
-    chmod -v 755 /usr/bin/lex
+    dump_files $PKG_FILES $DESTDIR
+    chmod -v 755 ${DESTDIR}/usr/bin/lex
 }

@@ -4,7 +4,7 @@ PKG_NAME="sysvinit"
 PKG_VERSION="2.88dsf"
 PKG_ARCHIVE_EXT="tar.bz2"
 
-build() {
+_build() {
     sed -i 's@Sending processes@& configured via /etc/inittab@g' src/init.c
 
     sed -i -e '/utmpdump/d' \
@@ -13,8 +13,8 @@ build() {
     make -C src
 }
 
-install_() {
-    make -C src install
+_install() {
+    make -C src install DESTDIR=$DESTDIR
 
-    tar -cvf - -C $PKG_FILES . | tar -xf - -C $DESTDIR
+    dump_files $PKG_FILES $DESTDIR
 }
