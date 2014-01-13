@@ -1,7 +1,8 @@
 #!/bin/sh -
 
-PKG_NAME="linux"
+PKG_NAME="linux-headers"
 PKG_VERSION="3.10.10"
+PKG_SOURCES="linux-${PKG_VERSION}"
 PKG_ARCHIVE_EXT="tar.xz"
 
 _build() {

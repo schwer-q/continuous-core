@@ -1,7 +1,8 @@
 #!/bin/sh -
 
-PKG_NAME="gcc"
+PKG_NAME="libstdc++"
 PKG_VERSION="4.8.1"
+PKG_SOURCES="gcc-${PKG_VERSION}"
 PKG_ARCHIVE_EXT="tar.bz2"
 
 USE_EXT_BUILD="yes"
