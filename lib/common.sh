@@ -26,7 +26,7 @@ do_build() {
     echo -e -n "\tBuilding..."
     log_phase "build"
     if test "$USE_EXT_BUILD" == "yes"; then
-	PKG_BUILD="${PKG_SOURCES}/../${PKG_NAME}-build"
+	PKG_BUILD="`readlink -f ${PKG_SOURCES}/../${PKG_NAME}-build`"
 	log_exec mkdir -pv $PKG_BUILD
     fi
     log_exec _build
@@ -80,6 +80,8 @@ log() {
 }
 
 log_exec() {
+    log "$@"
+
     cmd=$1
     shift
     args="$@"
@@ -103,10 +105,13 @@ log_start() {
     log "Build started on `date -u`"
     start_time=`date '+%s'`
     log=""
+    if test "$USE_EXT_BUILD" == "yes"; then
+	PKG_BUILD="`readlink -f ${PKG_SOURCES}/../${PKG_NAME}-build || echo ""`"
+    fi
+    return 0
 }
 
 log_stop() {
-    touch "${CURDIR}/status/${PKG_SCRIPT}-${PKG_VERSION}.done"
     log "Build completed on `date -u`"
     end_time=`date '+%s'`
     _time=$(($end_time - $start_time))
@@ -117,4 +122,8 @@ log_stop() {
     min=$(($_time / 60))
     sec=$(($_time % 60))
     log "Build time:  ${day}:${hour}:${min}:${sec}"
+    xz -9e -f $PKG_LOGFILE
+    test -n "$NO_STATUS" && return 0
+    touch "${CURDIR}/status/${PKG_SCRIPT}-${PKG_VERSION}.done"
+    return 0
 }

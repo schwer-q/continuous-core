@@ -40,6 +40,8 @@ PKG_FILES="${CURDIR}/files/$PKG_SCRIPT"
 PKG_LOGFILE="${LFS}/logs/toolchain/${PKG_SCRIPT}.log"
 PKG_SOURCES="${CURDIR}/${PKG_SOURCES}"
 
+NO_STATUS="yes"
+
 log_start
 do_clean
 do_unpack
