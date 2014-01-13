@@ -50,7 +50,7 @@ do_install() {
     log_phase "install"
     log_exec _install
     if test -d ${DESTDIR}/usr/share/man; then
-	log_exec find ${DESTDIR}/usr/share/man -type f '( ! -name *.gz )' \
+	log_exec find ${DESTDIR}/usr/share/man -type f '(' ! -name '*.gz' ')' \
 	    -exec gzip -f -9 '{}' ';'
     fi
     echo -e "\tdone."
