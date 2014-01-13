@@ -12,7 +12,7 @@ PATH="/tools/bin:/bin:/usr/bin"
 export LC_ALL LFS LFS_TGT PATH
 
 if test -z "$1"; then
-    files=`find $CURDIR | egrep '[[:digit:]]{3}-[[:alnum:]_]+\.sh$' | sort -V`
+    files=`find $CURDIR | egrep '[[:digit:]]{3}-[[:alnum:]_-]+\.sh$' | sort -V`
 
     mkdir -pv ${LFS}/tools
     mkdir -pv ${LFS}/logs/toolchain
