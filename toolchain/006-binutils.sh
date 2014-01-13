@@ -23,7 +23,7 @@ _build() {
     make
 }
 
-install_() {
+_install() {
     make install
 
     make -C ld clean
