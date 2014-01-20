@@ -15,7 +15,7 @@ unset files
 
 case "$1" in
     'core'|'toolchain')
-	files=`find ${CURDIR}/pkg/$1 | egrep '[[:digit:]]{3}-[[:alnum:]_-]+\.sh$' | sort -V`
+	files=`find ${CURDIR}/pkg/$1 | sort -V`
 	;;
     *.sh)
 	;;
@@ -25,7 +25,12 @@ case "$1" in
 	;;
 esac
 
-test -n "$file" && sh $0 $file
+if test -n "$files"; then
+    for f in $files; do
+	(basename $f | egrep -q '^[[:digit:]]{3}-[[:alnum:]_-]+\.sh$') || continue
+	sh $0 $file
+    done
+fi
 
 # set -x
 
