@@ -11,16 +11,21 @@ LFS="/"
 PATH="/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin"
 export HOME LC_ALL LFS PATH
 
-if test -z "$1"; then
-    files=`find $CURDIR | egrep '[[:digit:]]{3}-[[:alnum:]_-]+\.sh$' | sort -V`
+unset files
 
-    echo "===> Core build started on `date`"
-    for file in $files; do
-	sh $0 $file
-    done
-    echo "===> Core build completed on `date`"
-    exit $?
-fi
+case "$1" in
+    'core'|'toolchain')
+	files=`find ${CURDIR}/pkg/$1 | egrep '[[:digit:]]{3}-[[:alnum:]_-]+\.sh$' | sort -V`
+	;;
+    *.sh)
+	;;
+    *)
+	echo "Unknown components"
+	exit 2
+	;;
+esac
+
+test -n "$file" && sh $0 $file
 
 # set -x
 
