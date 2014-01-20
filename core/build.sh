@@ -35,7 +35,6 @@ PKG_FILES="${CURDIR}/files/$PKG_SCRIPT"
 PKG_LOGFILE="/logs/${PKG_SCRIPT}.log"
 PKG_SOURCES="${CURDIR}/${PKG_SOURCES}"
 
-check_status
 log_start
 do_clean
 do_unpack

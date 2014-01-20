@@ -15,12 +15,6 @@ export CURDIR LC_ALL
 : ${PATH="/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin"}
 export DESTDIR HOME LFS LFS_TGT PATH
 
-check_status() {
-    mkdir -p ${CURDIR}/status
-    test -e "${CURDIR}/status/${PKG_SCRIPT}-${PKG_VERSION}.done" && exit 0
-    return 0
-}
-
 do_build() {
     test "$NO_BUILD" == "yes" && return 0
     echo -e -n "\tBuilding..."
